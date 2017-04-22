@@ -1,0 +1,78 @@
+.map {
+  background-image: linear-gradient(#ccc,#fff);
+  //margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  image {
+    margin-top: 20rpx;
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    border: 6rpx solid #fff;
+  }
+  .user-name3d {
+    .user-name {
+      margin-top: 10rpx;
+      font-size: 30rpx;
+      padding: 5rpx;
+      font-weight: 600;
+    }
+    .user-name-3d {
+      transform-style: preserve-3d;
+      perspective: 200rpx;
+      transform:translate(21rpx,-25rpx);
+    }
+    .user-name-scale {
+      font-size: 30rpx;
+      //position: relative;
+      //background-color: rgba(0.1);
+      transform-origin: center;
+      color: #999;
+      //transform: translate3D(0, 0, -100rpx);
+      //transform: rotate3D(1,1,1.2,20deg);
+      //background-image: linear-gradient(0deg, #70f8ff, #c5ffff);
+      transform: rotateX(190deg) skewX(-50deg);
+    }
+  }
+}
+.weather {
+  view {
+    font-size: 28rpx;
+    line-height: 48rpx;
+    //text-align: center;
+  }
+  .weater-name {
+    display: inline-block;
+    width: 150rpx;
+    text-align: right;
+    margin-right: 30rpx;
+    margin-left: 100rpx;
+  }
+  .currentCity {
+    color: #09f47c;
+  }
+  .pm25 {
+    position: relative;
+    color: #08f410;
+  }
+  .pm25::before {
+    position: absolute;
+    right: 240rpx;
+  }
+  .pm25.red {
+    color: #f00;
+  }
+  .date {
+    color: #3ff490;
+  }
+  .temperature {
+    color: #6ff4b2;
+  }
+  .weatherDesc {
+    color: #99f4c7;
+  }
+  .wind {
+    color: #b3f4d9;
+  }
+}

@@ -1,0 +1,14 @@
+<view class="map">
+    <image src="{{ userInfo.avatarUrl }}"></image>
+    <view class="user-name3d">
+        <view class="user-name">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text></view>
+        <view class="user-name-3d">
+            <view class="user-name-scale">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="weather">
+<!--{{ item >== 40 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' }}-->
+    <view class="{{ index }} {{ index == 'pm25' ? item > 75 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' : '' }}" wx:for="{{ weatherData }}"><text class="weater-name">{{ name[index] }}:</text>{{ item }}{{ index == 'pm25' ? '微克/立方米' : '' }}</view>
+</view>
