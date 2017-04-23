@@ -1,4 +1,5 @@
-<view class="map">
+<!--用户信息-->
+<view class="user">
     <image src="{{ userInfo.avatarUrl }}"></image>
     <view class="user-name3d">
         <view class="user-name">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text></view>
@@ -8,7 +9,16 @@
         </view>
     </view>
 </view>
+<!--天气信息-->
 <view class="weather">
 <!--{{ item >== 40 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' }}-->
-    <view class="{{ index }} {{ index == 'pm25' ? item > 75 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' : '' }}" wx:for="{{ weatherData }}"><text class="weater-name">{{ name[index] }}:</text>{{ item }}{{ index == 'pm25' ? '微克/立方米' : '' }}</view>
+    <view bindtap="{{ index == 'currentCity' ? 'chooseCity' : '' }}" class="{{ index }} {{ index == 'pm25' ? item > 75 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' : '' }}" wx:for="{{ weatherData }}"><text class="weater-name">{{ name[index] }}:</text>{{ index == 'currentCity' ? item + '   更换城市' : item }}{{ index == 'pm25' ? '微克/立方米' : '' }}</view>
+</view>
+<!--舒适度指数-->
+<view class="zs">
+    <view class="zs-things">
+        <block wx:for='{{ weatherAll.index }}'>
+            <view class="tipt iconfont {{ zsIcon[index] }}">{{ item.tipt }}<text>{{ item.des }}</text></view>
+        </block>
+    </view>
 </view>

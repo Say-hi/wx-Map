@@ -1,8 +1,8 @@
+/*eslint-disable*/
 /**
  * @file 微信小程序JSAPI
  * @author 崔健 cuijian03@baidu.com 2017.01.10
  */
-
 /**
  * 百度地图微信小程序API类
  *
@@ -349,7 +349,7 @@ class BMapWX {
         let locationcomplete = function (result) {
         }
         if (!param["location"]) {
-            that.getWXLocation(type, locationsuccess, locationfail, locationcomplete);
+          that.getWXLocation(type, locationsuccess, locationfail, locationcomplete);
         } else {
             let longitude = param.location.split(',')[0];
             let latitude = param.location.split(',')[1];

@@ -10,28 +10,52 @@ Page({
     title: 'Index page',
     userInfo: {},
     weatherData: '',
-    weatherText: ['当前城市', 'PM2.5', '日期', '温度', '天气', '风力']
+    weatherText: ['当前城市', 'PM2.5', '日期', '温度', '天气', '风力'],
+    zsIcon: ['icon-chuanyikunhuo', 'icon-xiche', 'icon-ganmaozhishu', 'icon-yundong', 'icon-ziwaixian']
   },
   /**
-   * 生命周期函数--监听页面加载
+   * 选择城市
    */
-  onLoad () {
-    console.log(' ---------- onLoad ----------')
-    // console.dir(app.data)
-    var that = this
-    app.getUserInfo()
-      .then(info => this.setData({ userInfo: info }))
-      .catch(console.info)
-    // 百度地图
-    var BMap = new bmap.BMapWX({
-      ak: 'mIjA3xq45izQn0ej132vqufm3FAvOy4G'
-    })
-    var fail = function(data) {
-      console.log('fail!!!!')
+  chooseCity () {
+    // let obj = {
+    //   type: 'gcj02',
+    //   success (res) {
+    //     console.log(res)
+    //   }
+    // }
+    // wx.getLocation(obj)
+    let that = this
+    let obj = {
+      success (res) {
+        // console.log(res)
+        let site = res.longitude + ',' + res.latitude
+        that.Bmap(that, site)
+      },
+      cancel (res) {
+        console.log(res)
+      },
+      fail (res) {
+        console.log(res)
+      }
     }
-    var success = function(data) {
-      console.log('success!!!')
+    wx.chooseLocation(obj)
+  },
+  /**
+   * 百度地图函数
+   * @param that
+   * @constructor
+   */
+  Bmap (that, site) {
+    var BMap = new bmap.BMapWX({
+      ak: 'your baidu ak'
+    })
+    var fail = function (data) {
+      // console.log('fail!!!!')
+    }
+    var success = function (data) {
+      // console.log('success!!!')
       console.log(data)
+      console.log(1)
       var weatherData = data.currentWeather[0]
       var weatherAll = data.originalData.results[0]
       var name = {}
@@ -48,8 +72,22 @@ Page({
     }
     BMap.weather({
       fail: fail,
-      success: success
+      success: success,
+      location: site || null
     })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad () {
+    // console.log(' ---------- onLoad ----------')
+    // console.dir(app.data)
+    var that = this
+    app.getUserInfo()
+      .then(info => this.setData({ userInfo: info }))
+      .catch(console.info)
+    // 百度地图
+    that.Bmap(that)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

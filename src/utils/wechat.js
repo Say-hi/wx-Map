@@ -1,4 +1,4 @@
-const Promise = require('./bluebird')
+// const Promise = require('./bluebird')
 
 function login () {
   return new Promise((resolve, reject) => {
