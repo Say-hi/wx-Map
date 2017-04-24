@@ -3,8 +3,8 @@
   // First is default to view
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
-    "pages/index/index",
-    "pages/ddemo/ddemo"
+    "pages/ddemo/ddemo",
+    "pages/index/index"
     // Dont remove this comment
   ],
   // Window configuration
@@ -34,7 +34,7 @@
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#tabBar
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "green",
+    "selectedColor": "#f00",
     "borderStyle": "white",
     "backgroundColor": "#f5f5f5",
     "list": [

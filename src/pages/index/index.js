@@ -47,7 +47,7 @@ Page({
    */
   Bmap (that, site) {
     var BMap = new bmap.BMapWX({
-      ak: 'your baidu ak'
+      ak: 'mIjA3xq45izQn0ej132vqufm3FAvOy4G'
     })
     var fail = function (data) {
       // console.log('fail!!!!')
