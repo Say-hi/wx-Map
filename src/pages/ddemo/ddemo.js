@@ -17,6 +17,8 @@ Page({
     allCount: 3,
     currentIndex: 0,
     oldIndex: 0,
+    leftOut: ['fadeOutRight', 'bounceOut', 'zoomOut', 'rotateOutDownLeft', 'lightSpeedOut', 'zoomOutDown', 'zoomOutRight', 'zoomOutUp'],
+    rightOut: ['fadeOutLeft', 'bounceOut', 'zoomOut', 'rotateOutDownRight', 'lightSpeedOut1', 'zoomOutDown', 'zoomOutLeft', 'zoomOutUp'],
     view: [
       {
         in: '',
@@ -48,6 +50,7 @@ Page({
   touchEnd (e) {
     let that = this
     let view = this.data.view
+    let index = Math.floor((Math.random() * 8))
     this.setData({
       endX: e.changedTouches[0].clientX
     })
@@ -59,7 +62,7 @@ Page({
         oldIndex: that.data.currentIndex,
         currentIndex: ++that.data.currentIndex
       })
-      view[this.data.oldIndex].out = 'animated fadeOutLeft'
+      view[this.data.oldIndex].out = 'animated ' + this.data.rightOut[index]
       view[this.data.oldIndex].in = ''
       view[this.data.currentIndex].in = 'animated fadeInRight'
       view[this.data.currentIndex].out = ''
@@ -75,7 +78,7 @@ Page({
         oldIndex: that.data.currentIndex,
         currentIndex: --that.data.currentIndex
       })
-      view[this.data.oldIndex].out = 'animated fadeOutRight'
+      view[this.data.oldIndex].out = 'animated ' + this.data.leftOut[index]
       view[this.data.oldIndex].in = ''
       view[this.data.currentIndex].in = 'animated fadeInLeft'
       view[this.data.currentIndex].out = ''
