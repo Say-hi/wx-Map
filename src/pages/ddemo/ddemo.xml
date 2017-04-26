@@ -23,10 +23,20 @@
             <image class="two-two {{ two_two }}" src="../../images/14.png"></image>
             <image class="two-three {{ two_three }}" src="../../images/3.png"></image>
             <image class="two-four {{ two_four }}" src="../../images/20.png"></image>
-            <view class="two-five {{ two_five }}">大设计</view>
-            <view class="two-six {{ two_six }}"></view>
-            <view class="two-sev {{ two_sev }}"></view>
+            <view class="two-five {{ two_five }}">人马科技</view>
+            <view catchtap="showEig" class="two-six {{ two_six }}"></view>
+            <view catchtap="showEig" class="two-sev {{ two_sev }}"></view>
+            <image hidden="{{ !two_eig_hide }}" catchtap="hideEig" class="two-eig {{ two_eig }}" src="../../images/18.png"></image>
             <!--<view class="two-five {{ two_five }}">设计师</view>-->
+        </view>
+        <!--three-->
+        <view class="three {{ view[2].in }} {{ view[2].out }}" style="width: 100%; height: 100%">
+            <image class="three-one {{ three_one }}" src="../../images/19.png"></image>
+            <image class="three-two {{ three_two }}" src="../../images/19.png"></image>
+            <image class="three-three {{ three_three }}" src="../../images/19.png"></image>
+            <image class="three-four {{ three_four }}" src="../../images/19.png"></image>
+            <image catchtap="myImg" class="three-five {{ three_five }}" src="http://www.jiangwenqiang.com/api/my.jpg"></image>
+            <view class="three-six {{ three_six }}">点击预览保存图片，微信扫码添加</view>
         </view>
         <!--bottom-->
         <image class="bottom-top {{ bottom_top }}" src="../../images/5.png"></image>

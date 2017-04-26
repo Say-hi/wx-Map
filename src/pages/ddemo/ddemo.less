@@ -110,6 +110,7 @@ page {
   top: 0;
   left: 0;
   opacity: 0;
+  z-index: 44;
   .two-one {
     position: absolute;
     top: 40%;
@@ -145,7 +146,7 @@ page {
   .two-five {
     position: absolute;
     top: 10%;
-    left: 30%;
+    left: 25%;
     opacity: 0;
     font-size: 100rpx;
     font-weight: 700;
@@ -155,22 +156,78 @@ page {
   .two-six {
     position: absolute;
     top: 60%;
-    left: 47%;
+    left: 46.5%;
     opacity: 0;
     width: 50rpx;
     height: 50rpx;
     border-radius: 50%;
     background-color: #fff;
+    z-index: 999;
   }
   .two-sev {
     position: absolute;
     top: 61%;
-    left: 48.4%;
+    left: 48.1%;
     opacity: 0;
     width: 30rpx;
     height: 30rpx;
     border-radius: 50%;
     background-color: #fff;
+    z-index: 999;
+  }
+  .two-eig {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    //transform: translate(-50%);
+    opacity: 0;
+    width: 80%;
+    height: 70%;
+    z-index: 1000;
+  }
+}
+.three {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 33;
+  .three-one, .three-two, .three-three, .three-four {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    opacity: 1;
+    width: 25%;
+    height: 10%;
+  }
+  .three-two {
+    top: 30%;
+    left: 90%;
+  }
+  .three-three {
+    top: 5%;
+    left: 50%;
+  }
+  .three-four {
+    top: 20%;
+    left: 40%;
+  }
+  .three-five {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    opacity: 0;
+    width: 60%;
+    height: 40%;
+  }
+  .three-six {
+    position: absolute;
+    width: 100%;
+    bottom: 30%;
+    //left: 10%;
+    text-align: center;
+    font-weight: 700;
+    opacity: 0;
   }
 }
 // bottom
@@ -259,14 +316,7 @@ page {
 }
 
 
-.two-music-one {
-  opacity: 1;
-  animation: musicOne 0.5s linear infinite;
-}
-.two-music-two {
-  opacity: 1;
-  animation: musicTwo 0.5s linear infinite;
-}
+
 @keyframes moveLeft {
   0% {
     transform: translateX(0%);
@@ -282,6 +332,14 @@ page {
   100% {
     transform: translateX(100%);
   }
+}
+.two-music-one {
+  opacity: 1;
+  animation: musicOne 0.5s linear infinite;
+}
+.two-music-two {
+  opacity: 1;
+  animation: musicTwo 0.5s linear infinite;
 }
 @keyframes musicOne {
   0% {
@@ -305,6 +363,58 @@ page {
   50% {
     opacity: 1;
     transform: translateY(-30rpx);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.two-music-one-little {
+  opacity: 1;
+  animation: musicOneLittle 3s linear infinite;
+}
+.two-music-two-little {
+  opacity: 1;
+  animation: musicTwoLittle 3s linear infinite;
+}
+@keyframes musicOneLittle {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  25% {
+    opacity: 0.5;
+    transform: translateY(5rpx);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0rpx);
+  }
+  75% {
+    opacity: 0.5;
+    transform: translateY(-5rpx);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes musicTwoLittle {
+  0% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  25% {
+    opacity: 0.5;
+    transform: translateY(-5rpx);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0rpx);
+  }
+  75% {
+    opacity: 0.5;
+    transform: translateY(5rpx);
   }
   100% {
     opacity: 1;
@@ -688,6 +798,7 @@ Copyright (c) 2015 Daniel Eden
 
 @-webkit-keyframes tada {
   from {
+    opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
@@ -708,6 +819,7 @@ Copyright (c) 2015 Daniel Eden
   }
 
   to {
+    opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
@@ -715,6 +827,7 @@ Copyright (c) 2015 Daniel Eden
 
 @keyframes tada {
   from {
+    opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
@@ -735,6 +848,7 @@ Copyright (c) 2015 Daniel Eden
   }
 
   to {
+    opacity: 1;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
   }
@@ -1252,6 +1366,7 @@ Copyright (c) 2015 Daniel Eden
   }
 
   to {
+    opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
@@ -2980,6 +3095,35 @@ Copyright (c) 2015 Daniel Eden
   animation-name: rollOut;
 }
 
+@-webkit-keyframes zoomInEig {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomInEig {
+  from {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.zoomInEig {
+  -webkit-animation-name: zoomInEig;
+  animation-name: zoomInEig;
+}
+
 @-webkit-keyframes zoomIn {
   from {
     opacity: 0;
@@ -3025,6 +3169,9 @@ Copyright (c) 2015 Daniel Eden
     -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
   }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes zoomInDown {
@@ -3042,6 +3189,9 @@ Copyright (c) 2015 Daniel Eden
     transform: scale3d(.475, .475, .475) translate3d(0, 60px, 0);
     -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
     animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -3179,7 +3329,6 @@ Copyright (c) 2015 Daniel Eden
   }
 
   50% {
-    opacity: 0;
     -webkit-transform: scale3d(.3, .3, .3);
     transform: scale3d(.3, .3, .3);
   }
@@ -3195,7 +3344,6 @@ Copyright (c) 2015 Daniel Eden
   }
 
   50% {
-    opacity: 0;
     -webkit-transform: scale3d(.3, .3, .3);
     transform: scale3d(.3, .3, .3);
   }

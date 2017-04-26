@@ -14,9 +14,14 @@ Page({
     audioAnimation: 'audioAnimation',
     status: false,
     loop: true,
+    allCount: 3,
     currentIndex: 0,
     oldIndex: 0,
     view: [
+      {
+        in: '',
+        out: ''
+      },
       {
         in: '',
         out: ''
@@ -49,7 +54,7 @@ Page({
     let distance = e.changedTouches[0].clientX - this.data.startX
     if (distance < -100) {
       // left
-      if (this.data.currentIndex >= 1) return
+      if (this.data.currentIndex >= this.data.allCount - 1) return
       this.setData({
         oldIndex: that.data.currentIndex,
         currentIndex: ++that.data.currentIndex
@@ -175,20 +180,39 @@ Page({
       setTimeout(function () {
         that.setData({
           two_three: 'two-music-one',
-          two_four: 'two-music-two'
+          two_four: 'two-music-two',
+          two_one: 'two-music-one-little',
+          two_two: 'two-music-two-little'
         })
       }, 2200)
       setTimeout(function () {
         that.setData({
           two_five: 'animated flipInY'
         })
-      },1000)
+      }, 1000)
+    } else if (this.data.currentIndex === 2) {
+      setTimeout(function () {
+        that.setData({
+          three_five: 'animated zoomInDown'
+        })
+      }, 1000)
+      setTimeout(function () {
+        that.setData({
+          three_six: 'animated bounceInUp'
+        })
+      }, 1000)
+      setTimeout(function () {
+        that.setData({
+          three_six: 'animated tada'
+        })
+      }, 2000)
     }
   },
   /**
    * 清除动画
    */
   cleanAnimated () {
+    let that = this
     // one
     if (this.data.oldIndex === 0) {
       this.setData({
@@ -207,9 +231,44 @@ Page({
         two_four: 'animated fadeOut',
         two_five: 'animated fadeOut',
         two_six: 'animated fadeOut',
-        two_sev: 'animated fadeOut'
+        two_sev: 'animated fadeOut',
+        two_eig: 'animated fadeOut'
+      })
+      setTimeout(function () {
+        that.setData({
+          two_eig_hide: false
+        })
+      }, 1000)
+    } else if (this.data.oldIndex === 2) {
+      this.setData({
+        three_five: 'animated zoomOut',
+        three_six: 'animated zoomOut'
       })
     }
+  },
+  showEig () {
+    this.setData({
+      two_eig: 'animated zoomIn',
+      two_eig_hide: true
+    })
+  },
+  hideEig () {
+    this.setData({
+      two_eig: 'animated zoomOut'
+    })
+    let that = this
+    setTimeout(function () {
+      that.setData({
+        two_eig_hide: false
+      })
+    }, 1000)
+  },
+  myImg () {
+    wx.previewImage({
+      current: '',
+      urls: ['http://www.jiangwenqiang.com/api/my.jpg']
+    })
+
   },
   /**
    * 生命周期函数--监听页面加载
