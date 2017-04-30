@@ -12,7 +12,7 @@ Page({
     controls: false,
     audioIco: 'iconfont icon-yinlebofang',
     audioAnimation: 'audioAnimation',
-    status: false,
+    status: true,
     loop: true,
     allCount: 3,
     currentIndex: 0,
@@ -271,7 +271,22 @@ Page({
       current: '',
       urls: ['http://www.jiangwenqiang.com/api/my.jpg']
     })
-
+  },
+  /**
+   * 文本剪切
+   */
+  copyText () {
+    wx.setClipboardData({
+      data: 'https://github.com/Say-hi/wx-Map',
+      success () {
+        wx.showToast({
+          title: '地址已复制,请粘贴到浏览器地址栏打开',
+          image: '../../images/keai.png',
+          mask: 'true',
+          duration: 3000
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -286,6 +301,9 @@ Page({
    */
   onReady () {
     // TODO: onReady
+    wx.setNavigationBarTitle({
+      title: '企业宣传'
+    })
     this.audioCtx = wx.createAudioContext('myAudio')
     this.audioPlay()
   },
@@ -296,52 +314,61 @@ Page({
     // TODO: onShow
     let that = this
     this.showAnimated()
+    // this.audioPlay()
+    if (this.data.status) {
+      this.audioControl()
+    }
     // bottom
-    setTimeout(function () {
+    if (that.data.bottomStatus !== 0) {
       that.setData({
-        bottom: 'animated slideInUp'
+        bottomStatus: 0
       })
-    }, 2000)
-    setTimeout(function () {
-      that.setData({
-        bottom_one: 'animated slideInUp'
-      })
-    }, 2100)
-    setTimeout(function () {
-      that.setData({
-        bottom_two: 'animated slideInUp'
-      })
-    }, 2200)
-    setTimeout(function () {
-      that.setData({
-        bottom_three: 'animated slideInUp'
-      })
-    }, 2300)
-    setTimeout(function () {
-      that.setData({
-        bottom_four: 'animated slideInUp'
-      })
-    }, 2400)
-    setTimeout(function () {
-      that.setData({
-        bottom_one: 'bottom-4s-move'
-      })
-    }, 3100)
-    setTimeout(function () {
-      that.setData({
-        bottom_two: 'bottom-3s-move'
-      })
-    }, 3200)
-    setTimeout(function () {
-      that.setData({
-        bottom_three: 'bottom-2s-move'
-      })
-    }, 3300)
-    setTimeout(function () {
-      that.setData({
-        bottom_four: 'bottom-1s-move'
-      })
-    }, 3400)
+      setTimeout(function () {
+        that.setData({
+          bottom: 'animated slideInUp'
+        })
+      }, 2000)
+      setTimeout(function () {
+        that.setData({
+          bottom_one: 'animated slideInUp'
+        })
+      }, 2100)
+      setTimeout(function () {
+        that.setData({
+          bottom_two: 'animated slideInUp'
+        })
+      }, 2200)
+      setTimeout(function () {
+        that.setData({
+          bottom_three: 'animated slideInUp'
+        })
+      }, 2300)
+      setTimeout(function () {
+        that.setData({
+          bottom_four: 'animated slideInUp'
+        })
+      }, 2400)
+      setTimeout(function () {
+        that.setData({
+          bottom_one: 'bottom-4s-move'
+        })
+      }, 3100)
+      setTimeout(function () {
+        that.setData({
+          bottom_two: 'bottom-3s-move'
+        })
+      }, 3200)
+      setTimeout(function () {
+        that.setData({
+          bottom_three: 'bottom-2s-move'
+        })
+      }, 3300)
+      setTimeout(function () {
+        that.setData({
+          bottom_four: 'bottom-1s-move'
+        })
+      }, 3400)
+    }
   },
 
   /**
@@ -350,13 +377,18 @@ Page({
   onHide () {
     // TODO: onHide
     this.cleanAnimated()
-    this.setData({
-      bottom: '',
-      bottom_one: '',
-      bottom_two: '',
-      bottom_three: '',
-      bottom_four: ''
-    })
+    // this.aduioPause()
+    if (!this.data.status) {
+      this.audioControl()
+    }
+
+    // this.setData({
+    //   bottom: '',
+    //   bottom_one: '',
+    //   bottom_two: '',
+    //   bottom_three: '',
+    //   bottom_four: ''
+    // })
   },
 
   /**
@@ -371,5 +403,17 @@ Page({
    */
   onPullDownRefresh () {
     // TODO: onPullDownRefresh
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '城市天气查询',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 分享成功
+      },
+      fail: function (res) {
+        // 分享失败
+      }
+    }
   }
 })

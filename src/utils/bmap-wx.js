@@ -288,8 +288,8 @@ class BMapWX {
      *
      * @param {Object} param 检索配置
      */
-    weather(param) {
-        var that = this;
+    weather(param,_this) {
+        var that = this
         param = param || {};
         let weatherparam = {
             coord_type: param["coord_type"] || 'gcj02',
@@ -304,6 +304,7 @@ class BMapWX {
         };
         let type = 'gcj02';
         let locationsuccess = function (result) {
+            wx.setStorageSync('siteInfo', result);
             weatherparam["location"] = result["longitude"] + ',' + result["latitude"];
             wx.request({
                 url: 'https://api.map.baidu.com/telematics/v3/weather',
@@ -326,6 +327,7 @@ class BMapWX {
                             currentCity: weatherArr[0]["currentCity"],
                             pm25: weatherArr[0]["pm25"],
                             date: weatherArr[0]["weather_data"][0]["date"],
+                            curTemperature: weatherArr[0]["weather_data"][0]["date"].slice(weatherArr[0]["weather_data"][0]["date"].indexOf('：') + 1).slice(0,(weatherArr[0]["weather_data"][0]["date"].slice(weatherArr[0]["weather_data"][0]["date"].indexOf('：') + 1).indexOf(')') - 1)) + '°',
                             temperature: weatherArr[0]["weather_data"][0]["temperature"],
                             weatherDesc: weatherArr[0]["weather_data"][0]["weather"],
                             wind: weatherArr[0]["weather_data"][0]["wind"]
@@ -334,9 +336,22 @@ class BMapWX {
                     } else {
                         otherparam.fail({
                             errMsg: res["message"],
-                            statusCode: res["status"]
+                            statusCodeWx: res["status"]
                         });
                     }
+                    let obj = {
+                      url: 'https://free-api.heweather.com/v5/forecast',
+                      data: {
+                        city: wx.getStorageSync('siteInfo').longitude + ',' + wx.getStorageSync('siteInfo').latitude,
+                        key: '10c6e97476d54c1f86d8ffcd5639475b'
+                      },
+                      success (res) {
+                        _this.setData({
+                          HeWeather: res.data.HeWeather5[0]
+                        })
+                      }
+                    }
+                    wx.request(obj)
                 },
                 fail(data) {
                     otherparam.fail(data);

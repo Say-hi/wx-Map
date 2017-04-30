@@ -15,12 +15,16 @@ App({
   data: {
     name: 'WeApp Boilerplate',
     version: '0.1.0',
-    userInfo: null
+    userInfo: null,
+    // 和风天气免费api 4000次/日
+    hefenUrl: 'https://free-api.heweather.com/v5/',
+    hefenKey: '10c6e97476d54c1f86d8ffcd5639475b',
+    recentlyData: 'forecast?city=yourcity&key=yourkey', // 最近三天的数据
+    citySearch: 'search?city=yourcity&key=yourkey' // 城市搜索
   },
 
   // 不是只能定义`data`，别的也可以
   other: 'other variables',
-
   /**
    * 获取用户信息
    * @return {Promise} 包含获取用户信息的`Promise`

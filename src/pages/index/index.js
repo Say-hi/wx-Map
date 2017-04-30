@@ -8,6 +8,9 @@ Page({
    */
   data: {
     title: 'Index page',
+    dots: true,
+    circular: false,
+    autoplay: false,
     userInfo: {},
     weatherData: '',
     weatherText: ['当前城市', 'PM2.5', '日期', '温度', '天气', '风力'],
@@ -46,6 +49,8 @@ Page({
    * @constructor
    */
   Bmap (that, site) {
+    // var _this = that
+    var _this = this
     var BMap = new bmap.BMapWX({
       ak: 'mIjA3xq45izQn0ej132vqufm3FAvOy4G'
     })
@@ -54,8 +59,6 @@ Page({
     }
     var success = function (data) {
       // console.log('success!!!')
-      console.log(data)
-      console.log(1)
       var weatherData = data.currentWeather[0]
       var weatherAll = data.originalData.results[0]
       var name = {}
@@ -74,7 +77,7 @@ Page({
       fail: fail,
       success: success,
       location: site || null
-    })
+    }, _this)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -82,6 +85,17 @@ Page({
   onLoad () {
     // console.log(' ---------- onLoad ----------')
     // console.dir(app.data)
+    var date = new Date()
+    var hour = date.getHours()
+    if (hour >= 18) {
+      this.setData({
+        curtime: 1 // 晚上
+      })
+    } else {
+      this.setData({
+        curtime: 0 // 白天
+      })
+    }
     var that = this
     app.getUserInfo()
       .then(info => this.setData({ userInfo: info }))
@@ -118,5 +132,22 @@ Page({
    */
   onPullDownRefresh () {
     console.log(' ---------- onPullDownRefresh ----------')
+    var that = this
+    that.Bmap(that)
+    setTimeout(function () {
+      wx.stopPullDownRefresh()
+    }, 4000)
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '城市天气查询',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 分享成功
+      },
+      fail: function (res) {
+        // 分享失败
+      }
+    }
   }
 })
