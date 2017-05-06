@@ -17,6 +17,14 @@ Page({
     zsIcon: ['icon-chuanyikunhuo', 'icon-xiche', 'icon-ganmaozhishu', 'icon-yundong', 'icon-ziwaixian']
   },
   /**
+   * 去到快递查询
+   */
+  goToExpress () {
+    wx.navigateTo({
+      url: '../express/express'
+    })
+  },
+  /**
    * 选择城市
    */
   chooseCity () {

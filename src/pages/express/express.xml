@@ -1,0 +1,10 @@
+<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<view class="container">
+  <view class="express-img-wrap">
+      <image class='express-img' src='../../images/express.png'></image>
+  </view>
+  <view class="express-input-wrap iconfont icon-search">
+    <input bindblur="searchExpress" bindconfirm="searchExpress" class="express-input" bindinput="inputExpress" confirm-type="done" placeholder="请输入您的快递单号" value="{{ expressValue}}" />
+      <view catchtap='scanExpressCode' class="scan-code iconfont icon-saoma"></view>
+  </view>
+</view>

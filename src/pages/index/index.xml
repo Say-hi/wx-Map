@@ -1,4 +1,5 @@
 <!--用户信息-->
+<view catchtap="goToExpress" class="express">快递查询</view>
 <view class="user">
     <image src="{{ userInfo.avatarUrl }}"></image>
     <view class="user-name3d">

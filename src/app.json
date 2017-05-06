@@ -3,6 +3,7 @@
   // First is default to view
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
+    "pages/express/express",
     "pages/index/index",
     "pages/ddemo/ddemo"
     // Dont remove this comment
