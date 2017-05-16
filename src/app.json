@@ -5,7 +5,8 @@
   "pages": [
     "pages/express/express",
     "pages/index/index",
-    "pages/ddemo/ddemo"
+    "pages/ddemo/ddemo",
+    "pages/expressJump/expressJump"
     // Dont remove this comment
   ],
   // Window configuration

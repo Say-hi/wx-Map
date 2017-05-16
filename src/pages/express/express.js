@@ -73,15 +73,10 @@ Page({
    * 搜索快递单号
    */
   searchExpress () {
-    // let number = this.data.expressValue
-    let number = 400064671499
-    let obj = {
-      url: baseUrl + geMessageNoType + '?logisticsNo=' + number,
-      success (res) {
-        console.log(res)
-      }
-    }
-    wx.request(obj)
+    let number = this.data.expressValue
+    wx.navigateTo({
+      url: '../expressJump/expressJump?number=' + number
+    })
   },
   /**
    * 调用微信扫码
@@ -102,6 +97,7 @@ Page({
    */
   onLoad () {
     // TODO: onLoad
+
   },
 
   /**
@@ -116,6 +112,9 @@ Page({
    */
   onShow () {
     // TODO: onShow
+    this.setData({
+      history: wx.getStorageSync('saveList')
+    })
   },
 
   /**

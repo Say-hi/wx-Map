@@ -269,7 +269,7 @@ Page({
   myImg () {
     wx.previewImage({
       current: '',
-      urls: ['http://www.jiangwenqiang.com/api/my.jpg']
+      urls: ['https://www.jiangwenqiang.com/api/my.jpg']
     })
   },
   /**
