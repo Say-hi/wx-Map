@@ -23,8 +23,26 @@
             <file leaf-file-name="expressJump.xml" pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/pages/expressJump/expressJump.xml">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="66">
-                    <caret line="3" column="60" lean-forward="false" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
+                  <state relative-caret-position="242">
+                    <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="57" />
+                    <folding />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="express.xml" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/pages/express/express.xml">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="242">
+                    <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
                     <folding />
                   </state>
                 </provider>
@@ -41,9 +59,14 @@
       <file leaf-file-name="express.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/express/express.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="173">
+              <caret line="69" column="16" lean-forward="true" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
+              <folding>
+                <element signature="e#1712#1918#0" expanded="false" />
+                <element signature="e#1937#1964#0" expanded="false" />
+                <element signature="e#1974#2036#0" expanded="false" />
+                <element signature="e#2047#2264#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,10 +84,11 @@
       <file leaf-file-name="express.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/express/express.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="74" column="20" lean-forward="true" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
+            <state relative-caret-position="396">
+              <caret line="131" column="30" lean-forward="true" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="e#1156#1244#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -73,8 +97,8 @@
       <file leaf-file-name="expressJump.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/expressJump/expressJump.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+            <state relative-caret-position="266">
+              <caret line="21" column="6" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="21" selection-end-column="6" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#1187#1996#0" expanded="false" />
@@ -88,6 +112,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
               <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -118,16 +152,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
               <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="express.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pages/express/express.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -199,19 +223,19 @@
         <option value="$PROJECT_DIR$/pages/index/index.js" />
         <option value="$PROJECT_DIR$/pages/index/index.less" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/pages/express/express.less" />
         <option value="$PROJECT_DIR$/pages/express/express.json" />
         <option value="$PROJECT_DIR$/pages/ddemo/ddemo.xml" />
         <option value="$PROJECT_DIR$/pages/ddemo/ddemo.js" />
-        <option value="$PROJECT_DIR$/app.json" />
         <option value="$PROJECT_DIR$/pages/index/index.xml" />
         <option value="$PROJECT_DIR$/app.less" />
         <option value="$PROJECT_DIR$/pages/expressJump/expressJump.json" />
         <option value="$PROJECT_DIR$/pages/expressJump/expressJump.less" />
         <option value="$PROJECT_DIR$/pages/expressJump/expressJump.js" />
         <option value="$PROJECT_DIR$/pages/expressJump/expressJump.xml" />
-        <option value="$PROJECT_DIR$/pages/express/express.js" />
         <option value="$PROJECT_DIR$/pages/express/express.xml" />
+        <option value="$PROJECT_DIR$/pages/express/express.less" />
+        <option value="$PROJECT_DIR$/pages/express/express.js" />
+        <option value="$PROJECT_DIR$/app.json" />
       </list>
     </option>
   </component>
@@ -228,10 +252,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="x" value="744" />
+    <option name="y" value="70" />
+    <option name="width" value="1591" />
+    <option name="height" value="890" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -487,18 +511,18 @@
       <workItem from="1493464515930" duration="19557000" />
       <workItem from="1493951872171" duration="8175000" />
       <workItem from="1493991718553" duration="4220000" />
-      <workItem from="1494522945922" duration="15107000" />
+      <workItem from="1494522945922" duration="20406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144301000" />
+    <option name="totallyTimeSpent" value="149600000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="744" y="70" width="1591" height="890" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14278187" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17450097" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -702,31 +726,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="24" lean-forward="false" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding>
-            <marker date="1494942305291" expanded="true" signature="147:299" ph="[...]" />
-            <marker date="1494942305291" expanded="true" signature="303:402" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="415:1096" ph="{&quot;navigationBarBackgroundColor&quot;: &quot;##0094ff&quot;...}" />
-            <marker date="1494942305291" expanded="true" signature="421:473" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="525:578" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="622:657" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="713:753" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="792:855" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="896:1057" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="1100:1200" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="1213:1696" ph="{&quot;color&quot;: &quot;##999999&quot;...}" />
-            <marker date="1494942305291" expanded="true" signature="1342:1692" ph="[...]" />
-            <marker date="1494942305291" expanded="true" signature="1350:1517" ph="{&quot;text&quot;: &quot;Weather&quot;...}" />
-            <marker date="1494942305291" expanded="true" signature="1525:1686" ph="{&quot;text&quot;: &quot;AboutMe&quot;...}" />
-            <marker date="1494942305291" expanded="true" signature="1700:1816" ph="//..." />
-            <marker date="1494942305291" expanded="true" signature="1837:1890" ph="{&quot;request&quot;: 10000...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -777,14 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/express/express.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="43" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/expressJump/expressJump.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -801,10 +792,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pages/expressJump/expressJump.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="57" lean-forward="false" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/expressJump/expressJump.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        <state relative-caret-position="266">
+          <caret line="21" column="6" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="21" selection-end-column="6" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#1187#1996#0" expanded="false" />
@@ -812,28 +811,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/expressJump/expressJump.xml">
+    <entry file="file://$PROJECT_DIR$/pages/express/express.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="60" lean-forward="false" selection-start-line="3" selection-start-column="60" selection-end-line="3" selection-end-column="60" />
+        <state relative-caret-position="242">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/express/express.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="69" column="16" lean-forward="true" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="16" />
+          <folding>
+            <element signature="e#1712#1918#0" expanded="false" />
+            <element signature="e#1937#1964#0" expanded="false" />
+            <element signature="e#1974#2036#0" expanded="false" />
+            <element signature="e#2047#2264#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/express/express.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="74" column="20" lean-forward="true" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
+        <state relative-caret-position="396">
+          <caret line="131" column="30" lean-forward="true" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1156#1244#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/express/express.xml">
+    <entry file="file://$PROJECT_DIR$/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="484">
+          <caret line="22" column="50" lean-forward="true" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
           <folding />
         </state>
       </provider>

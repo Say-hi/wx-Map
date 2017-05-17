@@ -57,7 +57,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: 'express'
+    title: 'express',
+    chosseIndex: -1,
+    delStatus: false
   },
   /**
    * 获取输入的快递单号
@@ -91,6 +93,50 @@ Page({
         that.searchExpress()
       }
     })
+  },
+  /**
+   * 打电话
+   * @param e
+   */
+  call (e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone
+    })
+  },
+  /**
+   * 查询详细内容
+   * @param e
+   */
+  goToExpress (e) {
+    console.log(e)
+    let number = e.currentTarget.dataset.number
+    wx.navigateTo({
+      url: '../expressJump/expressJump?number=' + number
+    })
+  },
+  /**
+   * 删除记录
+   */
+  delete (e) {
+    let that = this
+    if (this.data.delStatus) return
+    this.setData({
+      delStatus: true
+    })
+    let index = e.currentTarget.dataset.index
+    let history = this.data.history
+    this.setData({
+      chosseIndex: index
+    })
+    setTimeout(function () {
+      history.splice(index, 1)
+      wx.setStorageSync('saveList', history)
+      that.setData({
+        history: wx.getStorageSync('saveList'),
+        delStatus: false,
+        chosseIndex: -1
+      })
+    },1200)
   },
   /**
    * 生命周期函数--监听页面加载

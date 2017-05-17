@@ -50,3 +50,69 @@ page {
 .icon-saoma::before {
   color: #eee;
 }
+.del {
+  animation: dl 1s forwards;
+  //margin: 0;
+}
+@keyframes dl {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-100rpx, 0);
+  }
+  100% {
+    transform: translate(1000rpx, -50rpx);
+    //margin: 0rpx;
+    padding: 0;
+    margin: 0;
+    height: 0rpx;
+    width: 0rpx;
+  }
+}
+.history {
+  padding: 20rpx;
+  box-sizing: border-box;
+  //background-color: #f00;
+  //width: 100%;
+  height: 150rpx;
+  margin: 0rpx 10rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #7FC06E;
+  border-radius: 20rpx;
+  box-shadow: 4rpx -2rpx 4rpx #ccc;
+  .info-wrap {
+    display: flex;
+    width: 180rpx;
+    flex-direction: column;
+    text-align: left;
+    margin-right: 5rpx;
+    .company {
+      font-size: 30rpx;
+    }
+    .number {
+      font-size: 24rpx;
+    }
+  }
+  .last-info-wrap {
+    font-size: 24rpx;
+  }
+  .phone {
+    font-size: 40rpx;
+    transform: translateY(-10rpx);
+  }
+  .delete {
+    position: absolute;
+    bottom: 0rpx;
+    right: 20rpx;
+    font-size: 24rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 10rpx;
+    padding: 5rpx;
+    background: linear-gradient(160deg, #fff, #7FC06E);
+  }
+}
