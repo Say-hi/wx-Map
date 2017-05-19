@@ -136,7 +136,7 @@ Page({
         delStatus: false,
         chosseIndex: -1
       })
-    },1200)
+    }, 1200)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -182,5 +182,17 @@ Page({
    */
   onPullDownRefresh () {
     // TODO: onPullDownRefresh
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '便民小工具',
+      path: '/pages/index/index',
+      success: function (res) {
+        // 分享成功
+      },
+      fail: function (res) {
+        // 分享失败
+      }
+    }
   }
 })

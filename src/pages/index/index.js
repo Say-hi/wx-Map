@@ -148,7 +148,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '城市天气查询',
+      title: '便民小工具',
       path: '/pages/index/index',
       success: function (res) {
         // 分享成功
