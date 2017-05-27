@@ -1,0 +1,6 @@
+<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<view class="container">
+  <text class="title">{{ title }}</text>
+  <view bindtap="openMapChooseSite">选择位置</view>
+  <view bindtap="openMap">打开微信地图</view>
+</view>

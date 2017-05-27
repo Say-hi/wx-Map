@@ -76,6 +76,8 @@ Page({
    */
   searchExpress () {
     let number = this.data.expressValue
+    number = number.replace(/\s+/g, '')
+    if (number.length === 0) return
     wx.navigateTo({
       url: '../expressJump/expressJump?number=' + number
     })
