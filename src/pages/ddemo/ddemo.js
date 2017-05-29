@@ -271,6 +271,11 @@ Page({
       current: '',
       urls: ['https://www.jiangwenqiang.com/api/my.jpg']
     })
+    if (wx.saveImageToPhotosAlbum) {
+      wx.saveImageToPhotosAlbum({
+        filePath: 'https://www.jiangwenqiang.com/api/my.jpg'
+      })
+    }
   },
   /**
    * 文本剪切

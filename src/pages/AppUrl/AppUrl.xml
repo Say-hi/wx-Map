@@ -1,6 +1,10 @@
 <!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
 <view class="container">
-  <text class="title">{{ title }}</text>
-  <view bindtap="openMapChooseSite">选择位置</view>
-  <view bindtap="openMap">打开微信地图</view>
+  <view class='bgwrap'>
+      <view class="title">导航小助手</view>
+      <image class='bg' src='{{ imgbg }}'></image>
+  </view>
+    <button type='{{ btnType }}' bindtap="openMapChooseSite">{{ text }}</button>
+  <!--<view class='btn' >设置目标地点</view>-->
+  <button bindtap="openMap">点我进入导航</button>
 </view>

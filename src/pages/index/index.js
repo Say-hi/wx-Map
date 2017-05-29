@@ -12,6 +12,7 @@ Page({
     circular: false,
     autoplay: false,
     userInfo: {},
+    imgMode: 'aspectFill',
     weatherData: '',
     weatherText: ['当前城市', 'PM2.5', '日期', '温度', '天气', '风力'],
     zsIcon: ['icon-chuanyikunhuo', 'icon-xiche', 'icon-ganmaozhishu', 'icon-yundong', 'icon-ziwaixian']
@@ -22,6 +23,11 @@ Page({
   goToExpress () {
     wx.navigateTo({
       url: '../express/express'
+    })
+  },
+  goTodaohang () {
+    wx.navigateTo({
+      url: '../AppUrl/AppUrl'
     })
   },
   /**
@@ -87,6 +93,47 @@ Page({
       location: site || null
     }, _this)
   },
+  // 获取51每日一言数据
+  getDayNote () {
+    let that = this
+    var date = new Date()
+    var time = date.getFullYear() + '-' + (date.getMonth() * 1 + 1) + '-' + date.getDate()
+    wx.request({
+      url: 'https://www.51wnl.com/Api4.3.3/GetSentenceByDate.ashx',
+      method: 'GET',
+      data: {
+        date: time,
+        cc: 'cn'
+      },
+      success (res) {
+        // console.log(res)
+        that.setData({
+          topDate: res.data.data
+        })
+        wx.setStorageSync('topDate', res.data.data)
+      },
+      fail () {
+        that.setData({
+          topDate: wx.getStorageSync('topDate')
+        })
+        // console.log(res)
+      }
+    })
+  },
+  showShares () {
+    // wx.showShareMenu()
+    if (wx.canIUse('showShareMenu')) {
+      console.log(1)
+      wx.showShareMenu()
+    } else {
+      wx.showToast({
+        title: '请小主点击右上角的按钮分享小程序给朋友',
+        image: '../../images/keai.png',
+        mask: 'true',
+        duration: 3000
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -115,12 +162,18 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady () {
+    if (wx.getStorageSync('topDate')) {
+      this.setData({
+        topDate: wx.getStorageSync('topDate')
+      })
+    }
     console.log(' ---------- onReady ----------')
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow () {
+    this.getDayNote()
     console.log(' ---------- onShow ----------')
   },
   /**

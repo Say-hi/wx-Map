@@ -13,7 +13,7 @@
             <image class="one-one {{ one_one }}" src="../../images/12.jpg"></image>
             <image class="one-two {{ one_two }}" src="../../images/2.png"></image>
             <view class="one-three {{ one_three }}">营销/新媒体/数字出版</view>
-            <view class="one-four {{ one_four }}">专业H5交互动画工具于服务平台</view>
+            <view class="one-four {{ one_four }}">专业H5交互动画效果服务平台</view>
             <view class="one-five {{ one_five }}">2017-04-24 人马科技</view>
             <image class="one-six {{ one_six }}" src="../../images/13.png"></image>
         </view>
