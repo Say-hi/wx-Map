@@ -1,0 +1,61 @@
+<!--用户信息-->
+<view catchtap="goToExpress" class="express">快递查询</view>
+<view catchtap="goTodaohang" class="daohang">地图导航</view>
+<button open-type="share" class="shares" catchtap='showShares'>向朋友推荐小程序</button>
+<!--<view class="user">-->
+    <!--<image src="{{ userInfo.avatarUrl }}"></image>-->
+    <!--<view class="user-name3d">-->
+        <!--<view class="user-name">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text></view>-->
+        <!--<view class="user-name-3d">-->
+            <!--<view class="user-name-scale">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text>-->
+            <!--</view>-->
+        <!--</view>-->
+    <!--</view>-->
+<!--</view>-->
+<view class="top-date">
+    <image mode='{{ imgMode }}' class='top-img' src="{{ topDate.img }}"></image>
+    <view class='top-text'>{{ topDate.s }}</view>
+</view>
+<!--天气信息-->
+<view class="weather">
+<!--{{ item >== 40 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' }}-->
+    <view class='cur-temperature'><text>{{ weatherData.curTemperature }}</text></view>
+    <view catchtap='chooseCity' class='choose-city'><text class='cur-city'>{{ weatherData.currentCity }}　{{ HeWeather.basic.city }}</text></view>
+    <view class="cur-info">
+        <text class="info">{{ weatherData.temperature }}/{{ weatherData.weatherDesc }}/{{ weatherData.wind }}</text>
+    </view>
+    <view class="pm25">
+        <text class="{{ weatherData.pm25 >= 75 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' }}">PM2.5:{{ weatherData.pm25 }}μg/m³</text>
+    </view>
+    <!--<view bindtap="{{ index == 'currentCity' ? 'chooseCity' : '' }}" class="{{ index }} {{ index == 'pm25' ? item > 75 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' : '' }}" wx:for="{{ weatherData }}"><text class="weater-name">{{ name[index] }}:</text>{{ index == 'currentCity' ? item + '   更换城市' : item }}{{ index == 'pm25' ? '微克/立方米' : '' }}</view>-->
+</view>
+<swiper indicator-dots="{{ dots }}" indicator-color='rgba(0,0,0,.3)' indicator-active-color="#0094ff" circular="{{ circular }}" autoplay="{{ autoplay }}"  duration="500">
+    <swiper-item class='dayliy-item' wx:for="{{ HeWeather.daily_forecast }}" wx:key="unique">
+        <view class='iconfont icon-shijian'><text>{{ item.date }}</text></view>
+        <view class='sun'>
+            <text class='iconfont icon-dpc69'>朝霞:{{ item.astro.sr }}</text>
+            <text class='iconfont icon-yueliang1'>夕阳:{{ item.astro.ss }}</text>
+        </view>
+        <view class='iconfont icon-wendu'><text>温度:{{  item.tmp.max }}~{{ item.tmp.min }}°</text></view>
+        <view class='rain'>
+            <view class='iconfont icon-xiayu'>下雨概率:{{ item.pop }}%</view>
+            <view class='iconfont icon-shidu'>相对湿度:{{ item.hum }}%RH</view>
+        </view>
+        <view class="wind">
+            <view class='iconfont icon-yanjing'>能见度:{{ item.vis }}km</view>
+            <view class='iconfont icon-fengxiang'>风向:{{ item.wind.dir }}</view>
+        </view>
+        <view class="wind2">
+            <view class='iconfont icon-fengli'>风力:{{ item.wind.sc }}</view>
+            <view class='iconfont icon-fengsuqiang'>风速:{{ item.wind.spd }}kmph</view>
+        </view>
+    </swiper-item>
+</swiper>
+<!--舒适度指数-->
+<view class="zs">
+    <view class="zs-things">
+        <block wx:for='{{ weatherAll.index }}'>
+            <view class="tipt iconfont {{ zsIcon[index] }}"><text>{{ item.des }}</text></view>
+        </block>
+    </view>
+</view>

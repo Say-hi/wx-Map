@@ -1,0 +1,117 @@
+page {
+  background-color: #fff;
+  //background-image: linear-gradient(#7FC06E, #fff, #fff);
+}
+.express-img-wrap {
+  height: 200rpx;
+  background-image: linear-gradient(#7FC06E, #fff);
+}
+.express-img {
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.express-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  //margin-top: 210rpx;
+  //background-image: linear-gradient(#7FC06E, #fff);
+  height: 100rpx;
+  //border-bottom: 4rpx solid #7FC06E;
+  .express-input {
+    width: 60%;
+    //transform: ;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    padding: 0 40rpx;
+    //padding-left: rpx;
+    border: 4rpx solid #999;
+    border-radius: 30rpx;
+  }
+}
+.express-input-wrap::before {
+  transform: translatex(40rpx);
+  //line-height: 60rpx;
+  color: #999;
+}
+.icon-saoma {
+  height: 80rpx;
+  transform: translate(10rpx, 12rpx);
+  position: relative;
+  z-index: 999;
+}
+.icon-saoma::before {
+  font-size: 50rpx;
+  color: #999;
+}
+.del {
+  animation: dl 1s forwards;
+  //margin: 0;
+}
+@keyframes dl {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-100rpx, 0);
+  }
+  100% {
+    transform: translate(1000rpx, -50rpx);
+    //margin: 0rpx;
+    padding: 0;
+    margin: 0;
+    height: 0rpx;
+    width: 0rpx;
+  }
+}
+.history {
+  padding: 20rpx;
+  box-sizing: border-box;
+  //background-color: #f00;
+  //width: 100%;
+  height: 150rpx;
+  margin: 0rpx 10rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #7FC06E;
+  border-radius: 20rpx;
+  box-shadow: 4rpx -2rpx 4rpx #ccc;
+  .info-wrap {
+    display: flex;
+    width: 180rpx;
+    flex-direction: column;
+    text-align: left;
+    margin-right: 5rpx;
+    .company {
+      font-size: 30rpx;
+    }
+    .number {
+      font-size: 24rpx;
+    }
+  }
+  .last-info-wrap {
+    font-size: 24rpx;
+  }
+  .phone {
+    font-size: 40rpx;
+    //transform: translateY(-10rpx);
+  }
+  .delete {
+    position: absolute;
+    bottom: 0rpx;
+    right: 20rpx;
+    font-size: 24rpx;
+    border: 1rpx solid #ccc;
+    border-radius: 10rpx;
+    padding: 5rpx;
+    background: linear-gradient(160deg, #fff, #7FC06E);
+  }
+}

@@ -1,0 +1,263 @@
+page {
+  //background-image: url("../../images/night.png");
+  //background-size: 100% 100%;
+  //background-repeat: no-repeat;
+  background-color: #fff;
+}
+.express {
+  position: fixed;
+  z-index: 91111;
+  top: 20rpx;
+  left: 20rpx;
+  text-align: left;
+  color: #000;
+  border-radius: 10rpx;
+  padding: 6rpx;
+  border: 1rpx solid #000;
+  line-height: 40rpx;
+}
+.daohang {
+    position: fixed;
+    z-index: 91111;
+    top: 90rpx;
+    left: 20rpx;
+    text-align: left;
+    color: #000;
+    border-radius: 10rpx;
+    padding: 6rpx;
+    border: 1rpx solid #000;
+    line-height: 40rpx;
+}
+.shares {
+  position: fixed;
+  z-index: 91111;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  text-align: left;
+  color: #000;
+  border-radius: 10rpx;
+  padding: 6rpx;
+  border: 1rpx solid #000;
+  line-height: 40rpx;
+  background-color: rgba(0,0,0,0);
+}
+//顶部图片
+.top-date {
+  position: relative;
+}
+.top-img {
+  //box-sizing: border-box;
+  //padding: 10rpx;
+  width: 100%;
+}
+.top-text {
+  position: absolute;
+  padding: 0 20rpx;
+  bottom: 10rpx;
+  left: 0;
+  text-align: left;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+//用户信息
+.user {
+  background-image: linear-gradient(#0094ff,#fff);
+  //margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  image {
+    margin-top: 20rpx;
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+    border: 6rpx solid #fff;
+  }
+  .user-name3d {
+    .user-name {
+      margin-top: 10rpx;
+      font-size: 30rpx;
+      padding: 5rpx;
+      font-weight: 600;
+      color: #fff;
+    }
+    .user-name-3d {
+      transform-style: preserve-3d;
+      perspective: 200rpx;
+      transform:translate(21rpx,-14rpx);
+    }
+    .user-name-scale {
+      font-size: 30rpx;
+      transform-origin: center;
+      color: #999;
+      transform: rotateX(190deg) skewX(-50deg);
+    }
+  }
+}
+//天气信息
+.weather {
+  position: relative;
+  .cur-temperature {
+    font-size: 170rpx;
+    font-weight: 700;
+    color: #0094ff;
+    //padding-left: 180rpx;
+    //text-align: center;
+    line-height: 266rpx;
+    //position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text {
+      transform: translateX(0.2em);
+    }
+  }
+  .choose-city {
+    width: 100%;
+    position: relative;
+    height: 74rpx;
+    text-align: center;
+  }
+  .cur-city {
+    text-align: center;
+    border: 4rpx solid rgba(0, 148, 255, 0.53);
+    padding: 8rpx 20rpx;
+    border-radius: 40rpx;
+    //position: absolute;
+    //left: 50%;
+    //transform: translateX(-50%);
+  }
+  .cur-info {
+    display: flex;
+    //margin-top: 100rpx;
+    align-items: center;
+    justify-content: center;
+    color: #0094ff;
+  }
+  .pm25 {
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0094ff;
+    .red {
+      color: #f00;
+    }
+  }
+}
+.icon-riluo::before {
+  font-size: 70rpx;
+  transition: translate(10rpx,10rpx);
+}
+swiper {
+  height: 300px;
+  color: #0094ff;
+}
+.wx-swiper-dot {
+  //transition: width 2s;
+  //-moz-transition: width 2s; /* Firefox 4 */
+  //-webkit-transition: width 2s; /* Safari 和 Chrome */
+  //-o-transition: width 2s;
+  width: 7px;
+}
+.wx-swiper-dot-active {
+  width: 30px !important;
+  //transition: all 1s;
+  border-radius: 10px !important;
+}
+.dayliy-item {
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  line-height: 80rpx;
+}
+.icon-shijian {
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+.sun {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.icon-wendu {
+  text-align: center;
+}
+.rain, .wind, .wind2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+//.weather {
+//  view {
+//    font-size: 28rpx;
+//    line-height: 48rpx;
+//    //text-align: center;
+//  }
+//  .weater-name {
+//    display: inline-block;
+//    width: 150rpx;
+//    text-align: right;
+//    margin-right: 30rpx;
+//    margin-left: 100rpx;
+//  }
+//  .currentCity {
+//    color: #09f47c;
+//  }
+//  .pm25 {
+//    position: relative;
+//    color: #08f410;
+//  }
+//  .pm25::before {
+//    position: absolute;
+//    right: 240rpx;
+//  }
+//  .pm25.red {
+//    color: #f00;
+//  }
+//  .date {
+//    color: #3ff490;
+//  }
+//  .temperature {
+//    color: #4cf475;
+//  }
+//  .weatherDesc {
+//    color: #56f49d;
+//  }
+//  .wind {
+//    color: #56f4d5;
+//  }
+//}
+//指数
+.zs {
+  .zs-things {
+    //display: flex;
+    //flex-wrap: nowrap;
+
+  }
+  .tipt {
+    font-size: 40rpx;
+    margin-left: 10rpx;
+    padding: 20rpx 40rpx 20rpx 80rpx;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-weight: 700;
+    border-bottom: 2rpx solid #eee;
+    text {
+      margin-top: 10rpx;
+      line-height: 40rpx;
+      //width: 40%;
+      font-size: 28rpx;
+    }
+  }
+  .tipt::before {
+    color: #0094ff;
+    position: absolute;
+    font-size: 90rpx;
+    font-weight: 200;
+    top: 20rpx;
+    left: -10rpx;
+  }
+}

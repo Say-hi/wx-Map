@@ -1,0 +1,24 @@
+<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<view class="container">
+  <view class="express-img-wrap">
+      <image class='express-img' src='../../images/express.png'></image>
+  </view>
+    <!--快递入口-->
+  <view class="express-input-wrap iconfont icon-search">
+    <input bindblur="searchExpress"  class="express-input" bindinput="inputExpress" confirm-type="done" placeholder="请输入或扫码您的快递单号" value="{{ expressValue}}" />
+      <view catchtap='scanExpressCode' class="scan-code iconfont icon-saoma"></view>
+  </view>
+    <!--历史记录-->
+    <view class="history {{ index === chosseIndex ? 'del' : '' }}" data-number="{{ item.nubmer }}" catchtap='goToExpress' wx:for='{{ history }}'>
+        <view class='info-wrap'>
+            <view class="company">{{ item.company }}</view>
+            <view class="number">{{ item.nubmer }}</view>
+        </view>
+        <view class="last-info-wrap">
+            <view class="time">{{ item.traces.acceptTime }}</view>
+            <view class="content">{{ item.traces.acceptStation }}</view>
+        </view>
+        <view wx:if="{{ item.traces.phone }}" catchtap='call' class="phone iconfont icon-dianhua1" data-phone="{{ item.traces.phone }}"></view>
+        <view class="delete" data-index="{{ index }}" catchtap='delete'>删除记录</view>
+    </view>
+</view>
