@@ -4,6 +4,7 @@
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
     "pages/index/index",
+    "pages/money/money",
     "pages/AppUrl/AppUrl",
     "pages/express/express",
     "pages/ddemo/ddemo",
@@ -47,6 +48,12 @@
         "pagePath": "pages/index/index",
         "iconPath": "images/index.png",
         "selectedIconPath": "images/index_HL.png"
+      },
+      {
+        "text": "Conversion",
+        "pagePath": "pages/money/money",
+        "iconPath": "images/money.png",
+        "selectedIconPath": "images/money_HL.png"
       },
       {
         "text": "Joke",

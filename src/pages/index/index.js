@@ -1,5 +1,5 @@
 // 获取全局应用程序实例对象
-// const app = getApp()
+const app = getApp()
 const bmap = require('../../utils/bmap-wx')
 // 创建页面实例对象
 Page({
@@ -13,6 +13,7 @@ Page({
     autoplay: false,
     userInfo: {},
     imgMode: 'aspectFill',
+    show: false,
     weatherData: '',
     weatherText: ['当前城市', 'PM2.5', '日期', '温度', '天气', '风力'],
     zsIcon: ['icon-chuanyikunhuo', 'icon-xiche', 'icon-ganmaozhishu', 'icon-yundong', 'icon-ziwaixian']
@@ -108,7 +109,8 @@ Page({
       success (res) {
         // console.log(res)
         that.setData({
-          topDate: res.data.data
+          topDate: res.data.data,
+          show: true
         })
         wx.setStorageSync('topDate', res.data.data)
       },
@@ -123,7 +125,7 @@ Page({
   showShares () {
     // wx.showShareMenu()
     if (wx.canIUse('showShareMenu')) {
-      console.log(1)
+      // console.log(1)
       wx.showShareMenu()
     } else {
       wx.showToast({
@@ -152,9 +154,9 @@ Page({
       })
     }
     var that = this
-    // app.getUserInfo()
-    //   .then(info => this.setData({ userInfo: info }))
-    //   .catch(console.info)
+    app.getUserInfo()
+      .then(info => this.setData({ userInfo: info }))
+      .catch(console.info)
     // 百度地图
     that.Bmap(that)
   },
@@ -162,11 +164,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady () {
-    if (wx.getStorageSync('topDate')) {
-      this.setData({
-        topDate: wx.getStorageSync('topDate')
-      })
-    }
     console.log(' ---------- onReady ----------')
   },
   /**
@@ -174,6 +171,12 @@ Page({
    */
   onShow () {
     this.getDayNote()
+    if (wx.getStorageSync('topDate')) {
+      this.setData({
+        topDate: wx.getStorageSync('topDate'),
+        show: true
+      })
+    }
     console.log(' ---------- onShow ----------')
   },
   /**

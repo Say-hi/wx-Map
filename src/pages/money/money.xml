@@ -1,0 +1,14 @@
+<view class="wrap">
+    <block wx:for="{{ itemArr }}">
+        <view data-index="{{ index }}" catchtap='choose' class="out-wrap {{ curChoose == index ? 'cur' : '' }} {{ (curChoose != 'xxx' && showFlag) ? '' : 'noclick' }}">
+            <view class="one"><image src="{{ item.img }}"></image><text>{{ item.country }}</text></view>
+            <view class="two"><text class='rate'>{{ item.rate }}</text><text>{{ item.moneyKind }}</text></view>
+        </view>
+    </block>
+    <view class="wrap2">
+        <block wx:for='{{ caculateArr }}'>
+            <!--<text catchtap='number' data-index='{{ index }}' bindtouchstart='touchStart' bindtouchend='touchEnd' class="{{ curIndex == index ? 'curIndex' : '' }}">{{ item }}</text>-->
+            <text catchtap='number' data-index='{{ index }}' class="{{ curIndex == index ? 'curIndex' : '' }}">{{ item }}</text>
+        </block>
+    </view>
+</view>

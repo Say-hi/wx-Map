@@ -5,7 +5,7 @@
         <!--<audio bindplay="audioPlay" id='myAudio' loop='true' controls='false' src="http://card.mugeda.com/campaigns/55b9e370a3664e7315000124/20161229062354/58648ba592b5793474145000/5864dddf92b57934d85e60fc.mp3"></audio>-->
     <!--</view>-->
 
-    <audio bindpause='aduioPause' bindplay="audioPlay" class="audio " src="{{src}}" id="myAudio" controls='{{ controls }}' loop="{{ loop }}"><text catchtap='audioControl' class='{{ audioAnimation }} {{ audioIco }}'></text></audio>
+    <audio bindpause='aduioPause' bindplay="audioPlay" class="audio " src="{{musicSrc}}" id="myAudio" controls='{{ controls }}' loop="{{ loop }}"><text catchtap='audioControl' class='{{ audioAnimation }} {{ audioIco }}'></text></audio>
 
     <view bindtouchend="touchEnd" bindtouchstart="touchStart" class="container">
         <!--one-->

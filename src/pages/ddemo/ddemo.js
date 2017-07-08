@@ -8,7 +8,16 @@ Page({
    */
   data: {
     title: 'ddemo',
-    src: 'http://card.mugeda.com/campaigns/55b9e370a3664e7315000124/20161229062354/58648ba592b5793474145000/5864dddf92b57934d85e60fc.mp3',
+    // src: 'http://card.mugeda.com/campaigns/55b9e370a3664e7315000124/20161229062354/58648ba592b5793474145000/5864dddf92b57934d85e60fc.mp3',
+    musicBaseUrl: 'https://www.jiangwenqiang.com/music/',
+    musicArr: [
+      '告白气球.mp3',
+      'Apologize.mp3',
+      'call_me_mabye.mp3',
+      'fade.mp3',
+      '咖喱咖喱.mp3',
+      '听妈妈的话.mp3'
+    ],
     controls: false,
     audioIco: 'iconfont icon-yinlebofang',
     audioAnimation: 'audioAnimation',
@@ -298,7 +307,12 @@ Page({
    */
   onLoad () {
     // TODO: onLoad
-
+    let that = this
+    let number = Math.floor(Math.random() * 6)
+    this.setData({
+      musicSrc: that.data.musicBaseUrl + that.data.musicArr[number]
+    })
+    // https://www.jiangwenqiang.com/music/%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83.mp3
   },
 
   /**

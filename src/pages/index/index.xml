@@ -2,17 +2,17 @@
 <view catchtap="goToExpress" class="express">快递查询</view>
 <view catchtap="goTodaohang" class="daohang">地图导航</view>
 <button open-type="share" class="shares" catchtap='showShares'>向朋友推荐小程序</button>
-<!--<view class="user">-->
-    <!--<image src="{{ userInfo.avatarUrl }}"></image>-->
-    <!--<view class="user-name3d">-->
-        <!--<view class="user-name">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text></view>-->
-        <!--<view class="user-name-3d">-->
-            <!--<view class="user-name-scale">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text>-->
-            <!--</view>-->
-        <!--</view>-->
-    <!--</view>-->
-<!--</view>-->
-<view class="top-date">
+<view wx:if='{{!show}}' class="user">
+    <image src="{{ userInfo.avatarUrl }}"></image>
+    <view class="user-name3d">
+        <view class="user-name">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text></view>
+        <view class="user-name-3d">
+            <view class="user-name-scale">{{ userInfo.nickName || '用户昵称' }} <text class="iconfont {{ userInfo.gender === 1 ? 'icon-shouyezhuyetubiao06' : 'icon-nv' }}"></text>
+            </view>
+        </view>
+    </view>
+</view>
+<view wx:if='{{show}}' class="top-date">
     <image mode='{{ imgMode }}' class='top-img' src="{{ topDate.img }}"></image>
     <view class='top-text'>{{ topDate.s }}</view>
 </view>
