@@ -6,9 +6,13 @@
         </view>
     </block>
     <view class="wrap2">
-        <block wx:for='{{ caculateArr }}'>
+        <block wx:for='{{ caculateArr }}' wx:key="*98">
             <!--<text catchtap='number' data-index='{{ index }}' bindtouchstart='touchStart' bindtouchend='touchEnd' class="{{ curIndex == index ? 'curIndex' : '' }}">{{ item }}</text>-->
             <text catchtap='number' data-index='{{ index }}' class="{{ curIndex == index ? 'curIndex' : '' }}">{{ item }}</text>
         </block>
     </view>
 </view>
+
+<!--<view class='tips'>-->
+    <!--<view>很抱歉由于第三方服务器证书问题，暂时无法使用相关功能</view>-->
+<!--</view>-->

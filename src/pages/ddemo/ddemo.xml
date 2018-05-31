@@ -35,8 +35,8 @@
             <image class="three-two {{ three_two }}" src="../../images/19.png"></image>
             <image class="three-three {{ three_three }}" src="../../images/19.png"></image>
             <image class="three-four {{ three_four }}" src="../../images/19.png"></image>
-            <image catchtap="myImg" class="three-five {{ three_five }}" src="https://www.jiangwenqiang.com/api/my.jpg"></image>
-            <view class="three-six {{ three_six }}">点击预览保存图片，微信扫码添加</view>
+            <image mode="withFix" catchtap="myImg" class="three-five {{ three_five }}" src="https://c.jiangwenqiang.com/api/my.jpg"></image>
+            <!--<view class="three-six {{ three_six }}">点击预览保存图片，微信扫码添加</view>-->
             <view bindtap='copyText' class="three-sev {{ three_six }}">GitHub:https://github.com/Say-hi/wx-Map</view>
             <contact-button type='default-light' class='haha' size='25'></contact-button>
         </view>

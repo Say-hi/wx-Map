@@ -4,7 +4,6 @@
  * 用于将微信官方`API`封装为`Promise`方式
  * > 小程序支持以`CommonJS`规范组织代码结构
  */
-const wechat = require('./utils/wechat')
 // const Promise = require('./utils/bluebird')
 
 App({
@@ -16,6 +15,7 @@ App({
     name: 'WeApp Boilerplate',
     version: '0.1.0',
     userInfo: null,
+    baseDomain: 'https://c.jiangwenqiang.com',
     // 和风天气免费api 4000次/日
     hefenUrl: 'https://free-api.heweather.com/v5/',
     hefenKey: '10c6e97476d54c1f86d8ffcd5639475b',
@@ -25,27 +25,14 @@ App({
 
   // 不是只能定义`data`，别的也可以
   other: 'other variables',
-  /**
-   * 获取用户信息
-   * @return {Promise} 包含获取用户信息的`Promise`
-   */
-  getUserInfo () {
-    return new Promise((resolve, reject) => {
-      if (this.data.userInfo) return reject(this.data.userInfo)
-      wechat.login()
-        .then(() => wechat.getUserInfo())
-        .then(res => res.userInfo)
-        .then(info => (this.data.userInfo = info))
-        .then(info => resolve(info))
-        .catch(error => console.error('failed to get user info, error: ' + error))
-    })
-  },
   wxrequest (obj) {
     wx.request({
       url: obj.url,
       method: obj.method || 'GET',
       data: obj.data || {},
-      header: obj.header || 'application/json',
+      header: {
+        'content-type': obj.header || 'application/x-www-form-urlencoded'
+      },
       success: obj.success || function () { console.log('not have success function, check!') },
       fail: obj.fail || function (err) { console.log(err) },
       complete: obj.complete || function () {}

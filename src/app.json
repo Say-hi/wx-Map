@@ -4,6 +4,7 @@
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
     "pages/index/index",
+    "pages/photo/joke",
     "pages/money/money",
     "pages/AppUrl/AppUrl",
     "pages/express/express",
@@ -57,7 +58,7 @@
       },
       {
         "text": "Joke",
-        "pagePath": "pages/joke/joke",
+        "pagePath": "pages/photo/joke",
         "iconPath": "images/joke.png",
         "selectedIconPath": "images/joke_hl.png"
       },

@@ -1,4 +1,5 @@
 // 获取全局应用程序实例对象
+/*eslint-disable*/
 const app = getApp()
 const bmap = require('../../utils/bmap-wx')
 // 创建页面实例对象
@@ -154,18 +155,32 @@ Page({
       })
     }
     var that = this
-    app.getUserInfo()
-      .then(info => this.setData({ userInfo: info }))
-      .catch(console.info)
+    app.wxrequest({
+      url: app.data.baseDomain + '/api/wechatIndex.json',
+      data: {},
+      success (res) {
+        that.setData({
+          indexInfo: res.data[0],
+          shows: res.data[0].show == 1 ? true : false
+        })
+      }
+    })
+    // app.getUserInfo()
+    //   .then(info => this.setData({ userInfo: info }))
+    //   .catch(console.info)
     // 百度地图
     that.Bmap(that)
+
+  },
+  hideindex () {
+    this.setData({
+      shows: !this.data.shows
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady () {
-    console.log(' ---------- onReady ----------')
-  },
+  onReady () {},
   /**
    * 生命周期函数--监听页面显示
    */

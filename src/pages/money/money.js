@@ -243,6 +243,7 @@ Page({
           itemArr: that.data.itemArr,
           itemArrUse: that.data.itemArr
         })
+        console.log('1')
         that.caculate()
       }
     })
