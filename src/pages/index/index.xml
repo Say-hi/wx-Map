@@ -56,7 +56,9 @@
 <view catchtap='hideindex' wx:if="{{ shows }}" class="mask">
     <view class="mask-in">
         <view>{{ indexInfo.title }}</view>
-        <image mode='aspectFit' src="{{ indexInfo.image }}"></image>
-        <view>{{ indexInfo.content }}</view>
+        <import src="../../wxParse/wxParse"></import>
+        <template is="wxParse" data="{{ wxParseData: content.nodes }}"></template>
+        <!--<image mode='aspectFit' src="{{ indexInfo.image }}"></image>-->
+        <!--<view wx:key="*1244" wx:for="{{ indexInfo.content }}">{{ item }}</view>-->
     </view>
 </view>

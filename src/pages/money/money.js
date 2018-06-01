@@ -222,12 +222,16 @@ Page({
    */
   getRate () {
     let that = this
+    wx.showLoading({
+      title: '更新数据中...',
+      mask: true
+    })
     wx.request({
       url: this.data.url2,
       method: 'GET',
       success (res) {
-        // console.log(res)
-        // console.log(res.data.common)
+        wx.hideLoading()
+        wx.stopPullDownRefresh()
         for (let i of res.data.common) {
           if (i.symbol === 'CNY') {
             that.data.itemArr.CNY.rate = i.rate
@@ -243,7 +247,6 @@ Page({
           itemArr: that.data.itemArr,
           itemArrUse: that.data.itemArr
         })
-        console.log('1')
         that.caculate()
       }
     })
@@ -291,6 +294,6 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
-    // TODO: onPullDownRefresh
+    this.getRate()
   }
 })

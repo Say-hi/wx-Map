@@ -238,7 +238,18 @@ Page({
   onShow () {
     // TODO: onShow
   },
-
+  onShareAppMessage: function onShareAppMessage() {
+    return {
+      title: '图FUN',
+      path: '/pages/index/index',
+      success: function success(res) {
+        // 分享成功
+      },
+      fail: function fail(res) {
+        // 分享失败
+      }
+    };
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

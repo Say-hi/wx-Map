@@ -1,7 +1,4 @@
 {
-  // All pages must be here.
-  // First is default to view
-  // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
     "pages/index/index",
     "pages/photo/joke",
@@ -57,7 +54,7 @@
         "selectedIconPath": "images/money_HL.png"
       },
       {
-        "text": "Joke",
+        "text": "图FUN",
         "pagePath": "pages/photo/joke",
         "iconPath": "images/joke.png",
         "selectedIconPath": "images/joke_hl.png"

@@ -2,6 +2,7 @@
 /*eslint-disable*/
 const app = getApp()
 const bmap = require('../../utils/bmap-wx')
+const wxparse = require('../../wxParse/wxParse')
 // 创建页面实例对象
 Page({
   /**
@@ -137,12 +138,25 @@ Page({
       })
     }
   },
+  // 获取服务器json数据
+  getIndexData () {
+    var that = this
+    app.wxrequest({
+      url: app.data.baseDomain + '/api/wechatIndex2.json',
+      data: {},
+      success (res) {
+        wxparse.wxParse('content', 'html',res.data[0].content,that,5)
+        that.setData({
+          indexInfo: res.data[0],
+          shows: res.data[0].show == 1 ? true : false
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
-    // console.log(' ---------- onLoad ----------')
-    // console.dir(app.data)
     var date = new Date()
     var hour = date.getHours()
     if (hour >= 18) {
@@ -154,23 +168,10 @@ Page({
         curtime: 0 // 白天
       })
     }
+    this.getIndexData()
     var that = this
-    app.wxrequest({
-      url: app.data.baseDomain + '/api/wechatIndex.json',
-      data: {},
-      success (res) {
-        that.setData({
-          indexInfo: res.data[0],
-          shows: res.data[0].show == 1 ? true : false
-        })
-      }
-    })
-    // app.getUserInfo()
-    //   .then(info => this.setData({ userInfo: info }))
-    //   .catch(console.info)
     // 百度地图
     that.Bmap(that)
-
   },
   hideindex () {
     this.setData({
@@ -192,27 +193,28 @@ Page({
         show: true
       })
     }
-    console.log(' ---------- onShow ----------')
+    // console.log(' ---------- onShow ----------')
   },
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide () {
-    console.log(' ---------- onHide ----------')
+    // console.log(' ---------- onHide ----------')
   },
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload () {
-    console.log(' ---------- onUnload ----------')
+    // console.log(' ---------- onUnload ----------')
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
-    console.log(' ---------- onPullDownRefresh ----------')
+    // console.log(' ---------- onPullDownRefresh ----------')
     var that = this
     that.Bmap(that)
+    this.getIndexData()
     setTimeout(function () {
       wx.stopPullDownRefresh()
     }, 4000)
