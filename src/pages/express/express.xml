@@ -8,6 +8,7 @@
     <input bindblur="searchExpress"  class="express-input" bindinput="inputExpress" confirm-type="done" placeholder="请输入或扫码您的快递单号" value="{{ expressValue}}" />
       <view catchtap='scanExpressCode' class="scan-code iconfont icon-saoma"></view>
   </view>
+    <ad unit-id="adunit-e61a81bff1cc12a6"></ad>
     <!--历史记录-->
     <view class="history {{ index === chosseIndex ? 'del' : '' }}" data-number="{{ item.nubmer }}" catchtap='goToExpress' wx:for='{{ history }}'>
         <view class='info-wrap'>

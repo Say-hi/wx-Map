@@ -9,3 +9,4 @@
   <button bindtap="openMap">点我进入导航</button>
     <view class='tis'>Tips: 导航功能仅适用于IOS客户端,Android客户端用户可在选择好导航目的地后通过地图下方的按钮使用外部导航软件</view>
 </view>
+<ad unit-id="adunit-e61a81bff1cc12a6"></ad>

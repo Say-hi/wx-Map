@@ -10,6 +10,7 @@
     <image mode='{{ imgMode }}' class='top-img' src="{{ topDate.img }}"></image>
     <view class='top-text'>{{ topDate.s }}</view>
 </view>
+<ad unit-id="adunit-e61a81bff1cc12a6"></ad>
 <!--天气信息-->
 <view class="weather">
 <!--{{ item >== 40 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' }}-->
