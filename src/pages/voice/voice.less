@@ -1,0 +1,129 @@
+.v-wrap {
+  display: flex;
+  .iconfont {
+    width: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-shengyin {
+    color: #f00;
+  }
+  .v-w-r {
+    flex: 1;
+    padding: 40rpx 0;
+  }
+}
+
+.v-wrap.active {
+  background-color: #f6f6f6;
+  .bd1 {
+    border-bottom: 1rpx solid #f6f6f6;
+  }
+}
+
+.zw {
+  height: 136rpx;
+}
+
+.v-bottom {
+
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  box-shadow: 0 -2rpx 12rpx 4rpx #e0e0e0;
+  .br {
+    width: 92rpx;
+    height: 92rpx;
+    margin-right: 20rpx;
+  }
+  .v-b-t {
+    width: 360rpx;
+    overflow: hidden;
+    .v-b-tt {
+      display: inline-block;
+      word-break: keep-all;
+    }
+  }
+  .v-b-o {
+    margin-left: 40rpx;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+    .iconfont {
+      margin: 0 10rpx;
+      &:before {
+        color: #7f7f7f;
+        font-size: 40srpx;
+      }
+    }
+  }
+  .v-b-o-c {
+    &:before {
+      color: #333 !important;
+      font-size: 60rpx !important;
+    }
+  }
+  .rotate {
+    transform: rotateZ(180deg);
+  }
+}
+
+.br {
+  border-radius: 50%;
+}
+.f32 {
+  font-size: 32rpx;
+}
+.fw7 {
+  font-weight: 700;
+}
+.lh40 {
+  line-height: 40rpx;
+}
+.f28 {
+  font-size: 28rpx;
+}
+.f20 {
+  font-size: 20rpx;
+}
+.c333 {
+  color: #333;
+}
+.c999 {
+  color: #999;
+}
+.bd1 {
+  border-bottom: 2rpx solid #eee;
+}
+.tac {
+  text-align: center;
+}
+
+.zhuanqilai {
+  animation: zhuan 10s linear infinite;
+}
+.animationplay {
+  animation-play-state: running;
+}
+.animationpause {
+  animation-play-state: paused;
+}
+@keyframes zhuan {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+view {
+  box-sizing: border-box;
+}

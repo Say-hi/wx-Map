@@ -185,16 +185,10 @@ Page({
   onPullDownRefresh () {
     // TODO: onPullDownRefresh
   },
-  onShareAppMessage: function () {
+  onShareAppMessage () {
     return {
-      title: '便民小工具',
-      path: '/pages/index/index',
-      success: function (res) {
-        // 分享成功
-      },
-      fail: function (res) {
-        // 分享失败
-      }
+      title: '向您推荐一个有趣的小程序，快来围观吧',
+      path: '/pages/index/index'
     }
   }
 })

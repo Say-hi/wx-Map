@@ -120,5 +120,11 @@ Page({
       that.videoContext.play()
       wx.stopPullDownRefresh()
     }, 200)
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '向您推荐一个有趣的小程序，快来围观吧',
+      path: '/pages/index/index'
+    }
   }
 })

@@ -9,6 +9,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    rotate: 135,
+    color_start: 'fff000',
+    color_center: 'fff000',
+    color_end: 'ff0000',
     title: 'Index page',
     dots: true,
     circular: false,
@@ -19,6 +23,36 @@ Page({
     weatherData: '',
     weatherText: ['当前城市', 'PM2.5', '日期', '温度', '天气', '风力'],
     zsIcon: ['icon-chuanyikunhuo', 'icon-xiche', 'icon-ganmaozhishu', 'icon-yundong', 'icon-ziwaixian']
+  },
+  changeColor () {
+    let that = this
+    let colorArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
+    setInterval(() => {
+      let color_start = '',
+        color_end = '',
+        color_center = ''
+      for (let i = 0; i < 6; i++) {
+        color_start += colorArr[Math.floor(Math.random() * 16)]
+      }
+      for (let i = 0; i < 6; i++) {
+        color_center += colorArr[Math.floor(Math.random() * 16)]
+      }
+      for (let i = 0; i < 6; i++) {
+        color_end += colorArr[Math.floor(Math.random() * 16)]
+      }
+      that.setData({
+        color_center,
+        color_start,
+        color_end,
+        rotate: Math.floor(Math.random() * 181)
+      })
+    }, 700)
+  },
+  showToast () {
+    wx.showToast({
+      title: '功能开发中...',
+      icon: 'loading'
+    })
   },
   /**
    * 去到快递查询
@@ -181,7 +215,9 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady () {},
+  onReady () {
+    this.changeColor()
+  },
   /**
    * 生命周期函数--监听页面显示
    */
@@ -221,14 +257,8 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: '便民小工具',
-      path: '/pages/index/index',
-      success: function (res) {
-        // 分享成功
-      },
-      fail: function (res) {
-        // 分享失败
-      }
+      title: '向您推荐一个有趣的小程序，快来围观吧',
+      path: '/pages/index/index'
     }
   }
 })

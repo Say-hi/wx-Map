@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/voice/voice",
+    "pages/danmu/danmu",
     "pages/photo/joke",
     "pages/money/money",
     "pages/AppUrl/AppUrl",
@@ -8,6 +10,7 @@
     "pages/ddemo/ddemo",
     "pages/expressJump/expressJump",
     "pages/joke/joke"
+
     // Dont remove this comment
   ],
   // Window configuration
@@ -21,7 +24,7 @@
     "navigationBarTextStyle": "white",
     // 类型：String；默认值：无
     // 导航栏标题文字内容
-    "navigationBarTitleText": "WeApp Boilerplate",
+    "navigationBarTitleText": "我的小程序",
     // 类型：HexColor；默认值：#ffffff
     // 窗口的背景色
     "backgroundColor": "#0094ff",
