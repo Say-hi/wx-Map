@@ -1,3 +1,4 @@
+<ad unit-id="adunit-e61a81bff1cc12a6"></ad>
 <view wx:for="{{ listArr }}" wx:key="*2" class="v-wrap {{ active == index ? 'active' : '' }}" catchtap="play" data-index="{{ index }}">
   <view class="iconfont {{ active == index ? 'icon-shengyin' : '' }}">{{ active == index ? '' : index * 1 + 1 }}</view>
   <view class="v-w-r bd1">
@@ -7,7 +8,7 @@
 </view>
 <view wx:if="{{ !listArr.length }}" class="tac f24 c999">暂无相关内容哦</view>
 
- <view class="zw"></view>
+<view class="zw"></view>
 <view class="v-bottom" wx:if="{{ active >= 0 }}">
   <image catchtap="showImg" data-src="{{ showImg }}" mode="aspectFill" class="br zhuanqilai {{ playStatus ? 'animationplay' : 'animationpause' }}" src="{{ showImg }}"></image>
   <view class="v-b-t">

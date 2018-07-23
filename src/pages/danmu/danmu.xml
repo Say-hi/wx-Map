@@ -1,0 +1,33 @@
+<view class="wrap" style="background: #{{ wrap_bgc }};"></view>
+<view class="content-wrap">
+  <view wx:key="*13" wx:for="{{ content }}" style="color: rgb({{ item.r }}, {{ item.g }}, {{ item.b }}); font-size: {{ item.size }}px;" data-index="{{ index }}" class="content-item">{{ item.t }}</view>
+</view>
+<view class="control">
+  <input bindblur="inputfinish" placeholder="请输入内容"/>
+  <view class="title">点击下面文字可单独设置每个文字的展示效果</view>
+  <scroll-view scroll-x class="sc-wrap">
+    <view class="show-text">
+      <text wx:key="*12" class="{{ textIndex == index ? 'active' : '' }}" catchtap="chooseText"  wx:for="{{ content }}" style="color: rgb({{ item.r }}, {{ item.g }}, {{ item.b }}); font-size: {{ item.size }}px;" data-index="{{ index }}">{{ item.t }}</text>
+    </view>
+  </scroll-view>
+  <view>
+    <view class="slider-set">
+      <text class="cfff">设置文字大小:</text>
+      <slider data-type="size" bindchange="sliderchange" value="{{ content[textIndex].size }}" min="30" max="200" show-value/>
+    </view>
+    <view class="slider-set">
+      <text class="cfff">设置文字颜色R:</text>
+      <slider data-type="r" bindchange="sliderchange" value="{{ content[textIndex].r }}" min="0" max="255" show-value/>
+    </view>
+    <view class="slider-set">
+      <text class="cfff">设置文字颜色G:</text>
+      <slider data-type="g" bindchange="sliderchange" value="{{ content[textIndex].g }}" min="0" max="255" show-value/>
+    </view>
+    <view class="slider-set">
+      <text class="cfff">设置文字颜色B:</text>
+      <slider data-type="b" bindchange="sliderchange" value="{{ content[textIndex].b }}" min="0" max="255" show-value/>
+    </view>
+  </view>
+</view>
+
+

@@ -27,7 +27,6 @@ Page({
     })
     this.playMusic()
     this.setAnimation()
-
   },
   setAnimation () {
     if (timer) clearInterval(timer)
@@ -121,10 +120,10 @@ Page({
   // 播放
   playMusic () {
     let that = this
-    let src = that.data.listArr[that.data.active].music
-    console.log(src)
     wx.playBackgroundAudio({
-      dataUrl: src
+      dataUrl: that.data.listArr[that.data.active].music,
+      title: that.data.listArr[that.data.active].name,
+      coverImgUrl: that.data.listArr[that.data.active].image
     })
   },
   // 暂停/播放
@@ -163,18 +162,23 @@ Page({
       urls: [src]
     })
   },
+  onStopFunction () {
+    let s = this.data.active
+    if (s >= this.data.listArr.length - 1) s = 0
+    else ++s
+    this.setData({
+      active: s,
+      bText: this.data.listArr[s].name,
+      showImg: this.data.listArr[s].image
+    })
+    this.playMusic()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad () {
-    let that = this
-    backgroundAudioManager.onEnded(function () {
-      that.setData({
-        playStatus: false,
-        active: -1
-      })
-    })
     this.getData()
+    wx.onBackgroundAudioStop(this.onStopFunction)
     // TODO: onLoad
   },
   /**
