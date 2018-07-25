@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/danmu/danmu",
     "pages/index/index",
+    "pages/danmu/danmu",
     "pages/voice/voice",
     "pages/photo/joke",
     "pages/money/money",

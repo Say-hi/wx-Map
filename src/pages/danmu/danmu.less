@@ -11,8 +11,7 @@ page {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translate(-50%, 0);
-  animation: move 5s linear infinite;
+  transform: translate(-50%, 0%);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -21,12 +20,16 @@ page {
   }
 }
 
+.run {
+  animation: move 5s linear infinite;
+}
+
 @keyframes move {
   from {
-    top: 100%;
+    transform: translate(-50%, 0%);
   }
   to {
-    top: -100%;
+    transform: translate(-50%, -140%);
   }
 }
 
@@ -35,7 +38,8 @@ page {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(00,255,255, 0.5);
+  height: 100%;
+  background-color: rgba(0,255,255, 0.5);
   input {
     width: 100%;
     box-sizing: border-box;
@@ -45,15 +49,15 @@ page {
     line-height: 80rpx;
   }
   .title {
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #fff;
     text-align: center;
     margin: 10rpx 0;
   }
   .sc-wrap {
     width: 100%;
-    //background-color: #f00;
     padding: 4rpx 0;
+    //background-color: #f00;
   }
   .show-text {
     margin: 10rpx;
@@ -63,6 +67,7 @@ page {
     text {
       border: 1rpx solid transparent;
       border-radius: 5rpx;
+
     }
     .active {
       border-color: #eee;
@@ -70,6 +75,20 @@ page {
   }
 }
 
+.close {
+  text-align: center;
+  font-size: 40rpx;
+  background-color: #fff;
+  color: #333;
+  line-height: 80rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .close-text {
+    font-size: 24rpx;
+    color: #c33;
+  }
+}
 
 .cfff {
   color: #fff;
@@ -79,8 +98,26 @@ page {
 .slider-set {
   display: flex;
   align-items: center;
+  .color-wrap {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    view {
+      width: 40rpx;
+      height: 40rpx;
+      border-radius: 50%;
+    }
+  }
 }
 slider {
   flex: 1;
   padding-left: 30rpx;
+}
+.back {
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 60rpxx;
+  background-color: #fff;
+  padding:20rpx 0;
 }
