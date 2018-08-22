@@ -339,7 +339,7 @@ class BMapWX {
                             statusCodeWx: res["status"]
                         });
                     }
-                    let obj = {
+                    wx.request({
                       url: 'https://free-api.heweather.com/v5/forecast',
                       data: {
                         city: wx.getStorageSync('siteInfo').longitude + ',' + wx.getStorageSync('siteInfo').latitude,
@@ -350,8 +350,7 @@ class BMapWX {
                           HeWeather: res.data.HeWeather5[0]
                         })
                       }
-                    }
-                    wx.request(obj)
+                    })
                 },
                 fail(data) {
                     otherparam.fail(data);

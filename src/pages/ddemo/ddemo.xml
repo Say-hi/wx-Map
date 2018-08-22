@@ -5,7 +5,7 @@
         <!--<audio bindplay="audioPlay" id='myAudio' loop='true' controls='false' src="http://card.mugeda.com/campaigns/55b9e370a3664e7315000124/20161229062354/58648ba592b5793474145000/5864dddf92b57934d85e60fc.mp3"></audio>-->
     <!--</view>-->
 
-    <audio bindpause='aduioPause' bindplay="audioPlay" class="audio " src="{{musicSrc}}" id="myAudio" controls='{{ controls }}' loop="{{ loop }}"><text catchtap='audioControl' class='{{ audioAnimation }} {{ audioIco }}'></text></audio>
+    <view bindpause='aduioPause' bindplay="audioPlay" class="audio " src="{{musicSrc}}" id="myAudio" controls='{{ controls }}' loop="{{ loop }}"><text catchtap='audioControl' class='showblock {{ audioAnimation }} {{ audioIco }}'></text></view>
 
     <view bindtouchend="touchEnd" bindtouchstart="touchStart" class="container">
         <!--one-->
@@ -35,7 +35,7 @@
             <image class="three-two {{ three_two }}" src="../../images/19.png"></image>
             <image class="three-three {{ three_three }}" src="../../images/19.png"></image>
             <image class="three-four {{ three_four }}" src="../../images/19.png"></image>
-            <image mode="withFix" catchtap="myImg" class="three-five {{ three_five }}" src="https://c.jiangwenqiang.com/api/my.jpg"></image>
+            <image mode="widthFix" catchtap="myImg" class="three-five {{ three_five }}" src="https://c.jiangwenqiang.com/api/my.jpg"></image>
             <!--<view class="three-six {{ three_six }}">点击预览保存图片，微信扫码添加</view>-->
             <view catchtap='copyText' class="three-sev {{ three_six }}">GitHub:https://github.com/Say-hi/wx-Map</view>
             <!--<contact-button type='default-light' class='haha' size='25'></contact-button>-->

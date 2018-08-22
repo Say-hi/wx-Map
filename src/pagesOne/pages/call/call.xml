@@ -1,0 +1,45 @@
+<view class="topText">{{ randomName }}</view>
+<view class="remarkText">{{ randomRemark }}</view>
+
+<view wx:if="{{ answer }}" class="center-icon">
+  <view class="iconfont icon-maikefeng-jingyin-tianchongsvg">
+    静音
+  </view>
+  <view class="iconfont icon-jianpankeyboard48">
+    拨号键盘
+  </view>
+  <view class="iconfont icon-shengyin1">
+    免提
+  </view>
+</view>
+
+<view wx:if="{{ answer }}" class="center-icon center-icon2">
+  <view class="iconfont icon-jiahao">
+    添加通话
+  </view>
+  <view class="iconfont icon-facetimevideo">
+    FaceTime
+  </view>
+  <view class="iconfont icon-users">
+    通讯录
+  </view>
+</view>
+
+
+<view wx:if="{{ !answer }}" class="small-icon">
+  <view class="iconfont icon-dingshinaozhong">
+    提醒我
+  </view>
+  <view class="iconfont icon-message_full">
+    信息
+  </view>
+</view>
+
+<view class="answer-btn">
+  <view catchtap="back" class="iconfont icon-guaduan">
+    {{ !answer ? '拒绝' : '挂断' }}
+  </view>
+  <view wx:if="{{ !answer }}" catchtap="answer" class="iconfont icon-dianhua">
+    接听
+  </view>
+</view>

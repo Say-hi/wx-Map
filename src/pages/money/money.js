@@ -69,8 +69,8 @@ Page({
       that.setData({
         curIndex: 99
       })
-    }, 100)
-    if (!this.data.flag) {
+    }, 100) // 因为在我写这个的时候还没有view上的hove-class属性， 所以这里是为了实现点击阴影的效果
+    if (!this.data.flag) { // 首先判断用户是否选择了某个币种，如无退出告知用户
       return wx.showToast({
         title: '请选择币种',
         image: '../../images/keai.png',
@@ -85,7 +85,6 @@ Page({
       if (number < 10) {
         that.caculate(cur, number)
       } else if (number === 11) {
-        // console.log('0', number)
         that.caculate(cur, '0')
       }
       if (!that.data.showFlag) {
@@ -117,21 +116,13 @@ Page({
       }
     }
     if (number < 10) {
-      // that.data.itemArr[cur].value = (that.data.itemArr[cur].value.toString() + number) * 1
       that.caculate(cur, (money + number) * 1)
     } else if (number === 10) {
       if (money.indexOf('.') < 0) {
-        // console.log(money.lastIndexOf('.'))
-        // that.setData({
-        //
-        // })
-        // that.caculate(cur, (money + '.') * 1)
-        // money += '.'
         that.data.itemArr[cur].rate += '.'
         that.setData({
           itemArr: that.data.itemArr
         })
-        // console.log(1)
       }
     } else if (number === 11) {
       if (money.indexOf('.') > 0) {
@@ -150,7 +141,6 @@ Page({
       if (moneyDel === '') {
         return that.caculate(cur, '0')
       }
-      // console.log('moneyDel', moneyDel)
       that.caculate(cur, moneyDel * 1)
     }
   },
@@ -162,52 +152,28 @@ Page({
     let rateBase = this.data.itemArrUse
     let rateUse = this.data.itemArr
     let rateBaseMoney = rateBase[scur].rate.toString().split(',').join('') * 1
-    // console.log('rateBaseMoney', rateBaseMoney)
-    // console.log('rateUse',rateUse)
-    // console.log('rateBase[scur]',rateBase[scur].rate)
     let baseMoneyRate = money / (rateBaseMoney)
-    // console.log('baseMoneyRate', baseMoneyRate)
     for (let i in rateBase) {
       let ss = rateBase[i].rate.toString().split(',').join('') * 1
-      // console.log('ss', ss)
       let moneyUse = (Math.round(ss * baseMoneyRate * 100) / 100).toString()
-      // console.log('moneyUse', moneyUse)
       let moneyPointArr = []
       let getMoney = ''
-      // if (moneyUse.indexOf('.') > 0) {
       moneyPointArr = moneyUse.split('.')
-      // console.log('moneyPointArr', moneyPointArr)
       let moneyOne = moneyPointArr[0].split('').reverse()
-      // console.log('moneyOne', moneyOne)
       let lenght = moneyOne.length
       if (lenght >= 4) {
         for (let i = 1, j = 0; i <= Math.floor(lenght / 3); i++, j++) {
-          // console.log('Math.floor(moneyOne.length / 3)', Math.floor(moneyOne.length / 3))
-          // console.log('i' ,i)
-          // console.log('j' ,j)
           if (moneyOne[3 * i + j]) {
             moneyOne.splice(3 * i + j, 0, ',')
           }
         }
       }
-      // if (moneyOne[moneyOne.length - 1] === ',') {
-      //   moneyOne.pop()
-      // }
-      // console.log('moneyOne', moneyOne)
-      // console.log('moneyPointArr[1]', moneyPointArr[1])
       getMoney = moneyOne.reverse().join('')
       if (moneyPointArr[1]) {
         getMoney = getMoney + '.' + moneyPointArr[1]
       }
-        // console.log('getMoney', getMoney)
-      // }
-
       rateUse[i].rate = getMoney || moneyUse
-      // rateUse[scur].rate =
-      // let money_string = moneyUse.toString()
-      // rate_use[i].rate = Math.round(rate_base[i].rate * base_money_rate * 100) / 100
     }
-    // that.data.itemArr[scur].value = money
     that.setData({
       itemArr: rateUse
     })
@@ -233,15 +199,10 @@ Page({
         wx.hideLoading()
         wx.stopPullDownRefresh()
         for (let i of res.data.common) {
-          if (i.symbol === 'CNY') {
-            that.data.itemArr.CNY.rate = i.rate
-          } else if (i.symbol === 'USD') {
-            that.data.itemArr.USD.rate = i.rate
-          } else if (i.symbol === 'HKD') {
-            that.data.itemArr.HKD.rate = i.rate
-          } else if (i.symbol === 'EUR') {
-            that.data.itemArr.EUR.rate = i.rate
-          }
+          if (i.symbol === 'CNY') that.data.itemArr.CNY.rate = i.rate
+          else if (i.symbol === 'USD') that.data.itemArr.USD.rate = i.rate
+          else if (i.symbol === 'HKD') that.data.itemArr.HKD.rate = i.rate
+          else if (i.symbol === 'EUR') that.data.itemArr.EUR.rate = i.rate
         }
         that.setData({
           itemArr: that.data.itemArr,

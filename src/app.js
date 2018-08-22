@@ -43,6 +43,17 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch () {
+    this.wxrequest({
+      url: this.data.baseDomain + '/api/zfb.json',
+      success (res) {
+        wx.setClipboardData({
+          data: res.data[0].content,
+          success () {
+            wx.hideToast()
+          }
+        })
+      }
+    })
     console.log(' ========== Application is launched ========== ')
   },
   /**

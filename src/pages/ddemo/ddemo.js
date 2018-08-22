@@ -10,6 +10,7 @@
 // backgroundAudioManager.onWaiting(function () {
 //   console
 // })
+let audio = null;
 // 创建页面实例对象
 Page({
   /**
@@ -129,12 +130,12 @@ Page({
   audioPlay: function audioPlay(a) {
     // console.log('playStart');
     // console.log(a);
-    this.audioCtx.play();
+    audio.play();
     // console.log(1)
   },
   aduioPause: function aduioPause() {
     // console.log('pause');
-    this.audioCtx.pause();
+    audio.pause();
     // console.log(2)
   },
 
@@ -338,8 +339,11 @@ Page({
       musicSrc: that.data.musicBaseUrl + that.data.musicArr[number]
     });
     // console.log('musicSrc', that.data.musicSrc);
-    this.audioCtx = wx.createAudioContext('myAudio');
-    this.audioCtx.setSrc(that.data.musicSrc);
+    audio = wx.createInnerAudioContext();
+    audio.autoplay = true;
+    audio.loop = true;
+    audio.obeyMuteSwitch = false;
+    audio.src = that.data.musicSrc;
     // console.log('audioCtx', this.audioCtx);
     that.audioPlay();
     // https://www.jiangwenqiang.com/music/%E5%91%8A%E7%99%BD%E6%B0%94%E7%90%83.mp3

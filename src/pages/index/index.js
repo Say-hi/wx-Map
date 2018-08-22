@@ -3,16 +3,18 @@
 const app = getApp()
 const bmap = require('../../utils/bmap-wx')
 const wxparse = require('../../wxParse/wxParse')
+let timer = null
 // 创建页面实例对象
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    rotate: 135,
-    color_start: 'fff000',
-    color_center: 'fff000',
-    color_end: 'ff0000',
+    showText: '体验更多',
+    // rotate: 135,
+    // color_start: 'fff000',
+    // color_center: 'fff000',
+    // color_end: 'ff0000',
     title: 'Index page',
     dots: true,
     circular: false,
@@ -25,9 +27,10 @@ Page({
     zsIcon: ['icon-chuanyikunhuo', 'icon-xiche', 'icon-ganmaozhishu', 'icon-yundong', 'icon-ziwaixian']
   },
   changeColor () {
+    if (timer) clearInterval(timer)
     let that = this
     let colorArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
-    setInterval(() => {
+    timer = setInterval(() => {
       let color_start = '',
         color_end = '',
         color_center = ''
@@ -143,7 +146,6 @@ Page({
         cc: 'cn'
       },
       success (res) {
-        // console.log(res)
         that.setData({
           topDate: res.data.data,
           show: true
@@ -216,12 +218,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady () {
-    this.changeColor()
+
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow () {
+    this.changeColor()
     this.getDayNote()
     if (wx.getStorageSync('topDate')) {
       this.setData({
@@ -235,12 +238,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide () {
+    if (timer) clearInterval(timer)
     // console.log(' ---------- onHide ----------')
   },
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload () {
+    if (timer) clearInterval(timer)
     // console.log(' ---------- onUnload ----------')
   },
   /**

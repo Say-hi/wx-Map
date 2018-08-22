@@ -43,7 +43,6 @@ Page({
   // 获取腾讯AI机器视觉api
   getApi (base64Img, model) {
     let that = this
-
     let params = {
       app_id: app_id,
       image: base64Img,
@@ -122,8 +121,7 @@ Page({
     })
     let ctx = wx.createCanvasContext('myCanvas')
     ctx.drawImage(this.data.showImg, 0, 0, wdith, height)
-    ctx.draw(false, () => {
-      // 2. 获取图像数据， API 1.9.0
+    ctx.draw(false, () => {  // 基础库版本需在1.9.0以上
       wx.canvasGetImageData({
         canvasId: 'myCanvas',
         x: 0,
@@ -132,15 +130,12 @@ Page({
         height: height,
         success(res) {
           let platform = wx.getSystemInfoSync().platform
-          if (platform == 'ios') {
-            // 兼容处理：ios获取的图片上下颠倒
+          if (platform == 'ios') {// 兼容处理：ios获取的图片上下颠倒
             res = that.reverseImgData(res)
-          }
-          // 3. png编码
+          }// 3. png编码
           let pngData = upng.encode([res.data.buffer], res.width, res.height)
           // 4. base64编码
           let base64 = wx.arrayBufferToBase64(pngData)
-          // let base64 = "data:image/png;base64," + wx.arrayBufferToBase64(pngData)
           that.getApi(base64, model)
         }
       })

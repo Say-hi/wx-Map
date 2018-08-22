@@ -7,7 +7,6 @@
     </block>
     <view class="wrap2">
         <block wx:for='{{ caculateArr }}' wx:key="*98">
-            <!--<text catchtap='number' data-index='{{ index }}' bindtouchstart='touchStart' bindtouchend='touchEnd' class="{{ curIndex == index ? 'curIndex' : '' }}">{{ item }}</text>-->
             <text catchtap='number' data-index='{{ index }}' class="{{ curIndex == index ? 'curIndex' : '' }}">{{ item }}</text>
         </block>
     </view>

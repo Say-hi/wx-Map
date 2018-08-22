@@ -4,6 +4,7 @@
   // 类型：String；默认值：white
   // 导航栏标题颜色，仅支持 black/white
   "navigationBarTextStyle": "white",
+  "disableScroll": true,
   // 类型：String；默认值：无
   // 导航栏标题文字内容
   "navigationBarTitleText": "城市天气",

@@ -11,28 +11,28 @@ Page({
     wrap_bgc: '000000',
     content: [
       {
-        t: '人',
+        t: '给',
         size: 250,
         r: 0,
         g: 255,
         b: 255
       },
       {
-        t: '马',
+        t: '强',
         size: 250,
         r: 255,
         g: 0,
         b: 255
       },
       {
-        t: '科',
+        t: '哥',
         size: 250,
         r: 255,
         g: 255,
         b: 0
       },
       {
-        t: '技',
+        t: '哥',
         size: 250,
         r: 255,
         g: 144,
@@ -186,7 +186,7 @@ Page({
         content: this.data.content
       })
       return
-    } else  {
+    } else {
       this.data.content[this.data.textIndex].r = r
       this.data.content[this.data.textIndex].g = g
       this.data.content[this.data.textIndex].b = b

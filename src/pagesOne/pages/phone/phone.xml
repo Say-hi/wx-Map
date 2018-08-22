@@ -1,0 +1,30 @@
+<view class="inputValue">
+  <text>呼入名称:</text>
+  <input bindinput="inputValue" data-type="name" value="{{ randomName }}" />
+</view>
+<view class="inputValue">
+  <text>备注显示:</text>
+  <input bindinput="inputValue" data-type="remark" value="{{ randomRemark }}" />
+</view>
+<view class="inputValue">
+  <text>电话语音:</text>
+  <picker bindchange="bindPickerChange" value="{{ audioIndex }}" range="{{ audioArr }}" range-key="title">
+    <view class="picker">
+      {{ audioArr[audioIndex].title || '暂无语音提供'}}
+    </view>
+  </picker>
+</view>
+<view catchtap='setRandom' class="randomBtn">
+  <text>随机生成搞怪电话</text>
+</view>
+
+<button hover-class="none" open-type="share" class="randomBtn bb randomBtnbb">
+  <text class="bbbb b1">恶搞好友</text>
+</button>
+<view class="randomBtn bb bb2">
+  <text class="bbbb b2" catchtap="jumpCall">预览效果</text>
+</view>
+<view class="randomBtn bb bb3">
+  <text class="bbbb b2" catchtap="backIndex">返回首页查看更多有趣好玩的内容</text>
+</view>
+<ad unit-id="adunit-e61a81bff1cc12a6"></ad>

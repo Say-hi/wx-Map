@@ -1,17 +1,21 @@
 <!--用户信息-->
-<view catchtap="goToExpress" class="express">快递查询</view>
-<view catchtap="goTodaohang" class="daohang">地图导航</view>
-<navigator url="../voice/voice" class="vocie">聆听歌曲</navigator>
-<navigator open-type="reLaunch" url="../danmu/danmu" style="transition: all 0.5s; background: linear-gradient({{ rotate }}deg, #{{ color_center }}, #{{ color_start }});" class="danmu">【手持弹幕神器】</navigator>
+<index-nav prop-start="{{ color_start }}" prop-rotate="{{ rotate }}" prop-center="{{ color_center }}" prop-end="{{ color_end }}"></index-nav>
+<!--<view catchtap="goToExpress" class="express">快递查询</view>-->
+<!--<view catchtap="goTodaohang" class="daohang">地图导航</view>-->
+<!--<navigator url="../voice/voice" class="vocie">聆听歌曲</navigator>-->
+<!--<navigator open-type="reLaunch" url="../danmu/danmu" style="transition: all 0.5s; background: linear-gradient({{ rotate }}deg, #{{ color_center }}, #{{ color_start }});" class="danmu">【手持弹幕神器】</navigator>-->
+<!--<navigator open-type="navigate" url="/pagesOne/pages/phone/phone" style="transition: all 0.5s; background: linear-gradient({{ rotate }}deg, #{{ color_start }}, #{{ color_end }});" class="danmu phone">【　搞怪来电　】</navigator>-->
 <button style="transition: all 0.5s; background: linear-gradient({{ rotate }}deg, #{{ color_start }}, #{{ color_center }}, #{{ color_end }});" open-type="share" class="shares" catchtap='showShares'>向朋友推荐小程序</button>
 <view wx:if='{{!show}}' class="user">
-<open-data type="userAvatarUrl"></open-data>
-<open-data type="groupName"></open-data>
+    <open-data type="userAvatarUrl"></open-data>
+    <open-data type="groupName"></open-data>
 </view>
+
 <view wx:if='{{show}}' class="top-date">
     <image mode='{{ imgMode }}' class='top-img' src="{{ topDate.img }}"></image>
     <view class='top-text'>{{ topDate.s }}</view>
 </view>
+
 <ad unit-id="adunit-e61a81bff1cc12a6"></ad>
 <!--天气信息-->
 <view class="weather">

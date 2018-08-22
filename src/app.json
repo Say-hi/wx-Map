@@ -10,8 +10,18 @@
     "pages/ddemo/ddemo",
     "pages/expressJump/expressJump",
     "pages/joke/joke"
-
+//    "pages/phone/phone",
+//    "pages/call/call"
     // Dont remove this comment
+  ],
+  "subPackages": [
+    {
+      "root": "pagesOne",
+      "pages": [
+        "pages/phone/phone",
+        "pages/call/call"
+      ]
+    }
   ],
   // Window configuration
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#window
