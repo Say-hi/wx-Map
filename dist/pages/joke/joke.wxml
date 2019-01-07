@@ -1,0 +1,7 @@
+<view class="joke">
+    <view class='topheight'>下拉可以切换视频哦~</view>
+    <image class='img' src='../../images/video.png'></image>
+    <view class='video-wrap'>
+        <video id='videos' class='videoarea' objectFit='{{objectFit}}' src='{{ videoArr[choose] }}' poster='{{poster}}' controls='{{controls}}' autoplay='{{ autoplays }}'></video>
+    </view>
+</view>

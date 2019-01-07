@@ -1,0 +1,36 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\node\\node.exe',
+1 verbose cli   'D:\\node\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'watch' ]
+2 info using npm@3.10.8
+3 info using node@v6.9.1
+4 verbose run-script [ 'prewatch', 'watch', 'postwatch' ]
+5 info lifecycle weapp-boilerplate@0.1.0~prewatch: weapp-boilerplate@0.1.0
+6 silly lifecycle weapp-boilerplate@0.1.0~prewatch: no script for prewatch, continuing
+7 info lifecycle weapp-boilerplate@0.1.0~watch: weapp-boilerplate@0.1.0
+8 verbose lifecycle weapp-boilerplate@0.1.0~watch: unsafe-perm in lifecycle true
+9 verbose lifecycle weapp-boilerplate@0.1.0~watch: PATH: D:\node\node_modules\npm\bin\node-gyp-bin;G:\Map\map-use\node_modules\.bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;D:\proe\bin;D:\proe\mech\bin;C:\Program Files (x86)\QuickTime\QTSystem\;D:\Git\cmd;D:\node\;C:\Program Files\MySQL\MySQL Server 5.5\bin;D:\mongodb\bin;C:\Program Files\TortoiseSVN\bin;D:\android\sdk\platform-tools;D:\android\sdk\tools;C:\Program Files\Java\jdk1.8.0_91\bin;C:\Users\vcc\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\vcc\AppData\Local\Programs\Python\Python36-32\;C:\Users\vcc\AppData\Roaming\npm;D:\Microsoft VS Code\bin;C:\Users\vcc\AppData\Local\Programs\Fiddler
+10 verbose lifecycle weapp-boilerplate@0.1.0~watch: CWD: G:\Map\map-use
+11 silly lifecycle weapp-boilerplate@0.1.0~watch: Args: [ '/d /s /c', 'gulp watch' ]
+12 verbose stack Error: kill ENOSYS
+12 verbose stack     at exports._errnoException (util.js:1026:11)
+12 verbose stack     at process.kill (internal/process.js:172:13)
+12 verbose stack     at process.listener (D:\node\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:86:15)
+12 verbose stack     at emitNone (events.js:91:20)
+12 verbose stack     at process.emit (events.js:185:7)
+12 verbose stack     at processEmit (D:\node\node_modules\npm\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at processEmit (D:\node\node_modules\npm\node_modules\npm-registry-client\node_modules\npmlog\node_modules\gauge\node_modules\signal-exit\index.js:146:32)
+12 verbose stack     at Signal.wrap.onsignal (internal/process.js:199:44)
+13 verbose cwd G:\Map\map-use\src
+14 error Windows_NT 6.1.7601
+15 error argv "D:\\node\\node.exe" "D:\\node\\node_modules\\npm\\bin\\npm-cli.js" "run" "watch"
+16 error node v6.9.1
+17 error npm  v3.10.8
+18 error code ENOSYS
+19 error errno ENOSYS
+20 error syscall kill
+21 error kill ENOSYS
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]

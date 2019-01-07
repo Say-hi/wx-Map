@@ -1,0 +1,77 @@
+.index-nav {
+  position: fixed;
+  top: 20rpx;
+  left: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 999999;
+}
+.index-nav .nav-open {
+  position: absolute;
+  right: -200%;
+  text-align: center;
+  top: 0;
+}
+.nav-con {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  font-weight: 700;
+  line-height: 100rpx;
+  border-radius: 5rpx;
+  transition: all 0.5s;
+  transform: translate(-50%, -50%);
+}
+.nav-con.cricle {
+  border-radius: 50%;
+}
+.animationControl {
+  padding: 4rpx 6rpx;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  color: #fff;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1rpx solid attr(data-color);
+  margin-bottom: 20rpx;
+  font-weight: 700;
+}
+.animationShow {
+  opacity: 0;
+  animation-name: animationShow;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+.animationHide {
+  opacity: 1;
+  animation-name: animationHide;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes animationShow {
+  from {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes animationHide {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+}

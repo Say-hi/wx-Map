@@ -1,0 +1,234 @@
+page {
+  background-color: #fff;
+}
+.express,
+.daohang,
+.vocie {
+  position: fixed;
+  z-index: 91111;
+  top: 20rpx;
+  left: 20rpx;
+  text-align: left;
+  color: #fff;
+  background: linear-gradient(135deg, #0094ff, #8bfaff);
+  border-radius: 10rpx;
+  padding: 6rpx 10rpx;
+  border: 1rpx solid #01a6ff;
+  line-height: 40rpx;
+  font-size: 26rpx;
+}
+.daohang {
+  top: 90rpx;
+}
+.vocie {
+  top: 160rpx;
+}
+.shares,
+.danmu {
+  position: fixed;
+  z-index: 91111;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+  text-align: left;
+  color: #fff;
+  border-radius: 10rpx;
+  padding: 6rpx 10rpx;
+  line-height: 40rpx;
+}
+.danmu {
+  top: 90rpx;
+}
+.phone {
+  top: 160rpx;
+}
+.top-date {
+  position: relative;
+}
+.top-img {
+  width: 100%;
+}
+.top-text {
+  position: absolute;
+  padding: 0 20rpx;
+  bottom: 10rpx;
+  left: 0;
+  text-align: left;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  font-weight: 700;
+}
+.user {
+  background-image: linear-gradient(#0094ff, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user image {
+  margin-top: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  border: 6rpx solid #fff;
+}
+.user .user-name3d .user-name {
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  padding: 5rpx;
+  font-weight: 600;
+  color: #fff;
+}
+.user .user-name3d .user-name-3d {
+  transform-style: preserve-3d;
+  perspective: 200rpx;
+  transform: translate(21rpx, -14rpx);
+}
+.user .user-name3d .user-name-scale {
+  font-size: 30rpx;
+  transform-origin: center;
+  color: #999;
+  transform: rotateX(190deg) skewX(-50deg);
+}
+.weather {
+  position: relative;
+}
+.weather .cur-temperature {
+  font-size: 170rpx;
+  font-weight: 700;
+  color: #0094ff;
+  line-height: 266rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weather .cur-temperature text {
+  transform: translateX(0.2em);
+}
+.weather .choose-city {
+  width: 100%;
+  position: relative;
+  height: 74rpx;
+  text-align: center;
+}
+.weather .cur-city {
+  text-align: center;
+  border: 4rpx solid rgba(0, 148, 255, 0.53);
+  padding: 8rpx 20rpx;
+  border-radius: 40rpx;
+}
+.weather .cur-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0094ff;
+}
+.weather .pm25 {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0094ff;
+}
+.weather .pm25 .red {
+  color: #f00;
+}
+.icon-riluo::before {
+  font-size: 70rpx;
+  transition: translate(10rpx, 10rpx);
+}
+swiper {
+  height: 300px;
+  color: #0094ff;
+}
+.wx-swiper-dot {
+  width: 7px;
+}
+.wx-swiper-dot-active {
+  width: 30px !important;
+  border-radius: 10px !important;
+}
+.dayliy-item {
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  line-height: 80rpx;
+}
+.icon-shijian {
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+.sun {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.icon-wendu {
+  text-align: center;
+}
+.rain,
+.wind,
+.wind2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.zs .tipt {
+  font-size: 40rpx;
+  margin-left: 10rpx;
+  padding: 20rpx 40rpx 20rpx 80rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-weight: 700;
+  border-bottom: 2rpx solid #eee;
+}
+.zs .tipt text {
+  margin-top: 10rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+}
+.zs .tipt::before {
+  color: #0094ff;
+  position: absolute;
+  font-size: 90rpx;
+  font-weight: 200;
+  top: 20rpx;
+  left: -10rpx;
+}
+.mask {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #333;
+  font-size: 28rpx;
+}
+.mask-in {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 300rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+.mask-in image {
+  width: 100%;
+}
+.mask-in view {
+  margin: 10rpx;
+}
+.showMore {
+  position: fixed;
+  top: 50rpx;
+  left: 20rpx;
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+  color: #fff;
+  z-index: 92111;
+  background: linear-gradient(120deg, #f00, #ff5fc4);
+}

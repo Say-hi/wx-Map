@@ -1,0 +1,17 @@
+<view class="wrap">
+    <block wx:for="{{ itemArr }}">
+        <view data-index="{{ index }}" catchtap='choose' class="out-wrap {{ curChoose == index ? 'cur' : '' }} {{ (curChoose != 'xxx' && showFlag) ? '' : 'noclick' }}">
+            <view class="one"><image src="{{ item.img }}"></image><text>{{ item.country }}</text></view>
+            <view class="two"><text class='rate'>{{ item.rate }}</text><text>{{ item.moneyKind }}</text></view>
+        </view>
+    </block>
+    <view class="wrap2">
+        <block wx:for='{{ caculateArr }}' wx:key="*98">
+            <text catchtap='number' data-index='{{ index }}' class="{{ curIndex == index ? 'curIndex' : '' }}">{{ item }}</text>
+        </block>
+    </view>
+</view>
+
+<!--<view class='tips'>-->
+    <!--<view>很抱歉由于第三方服务器证书问题，暂时无法使用相关功能</view>-->
+<!--</view>-->

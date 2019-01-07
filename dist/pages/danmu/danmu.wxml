@@ -1,0 +1,57 @@
+<view catchtap='showChange' class="wrap" style="background: #{{ wrap_bgc }};"></view>
+<view catchtap='showChange' class="content-wrap {{ !show ? 'run' : '' }}" style='left: 50%; transform: translate(-50%, 0%); animation-duration: {{ time }}s'>
+  <view wx:key="*13" wx:for="{{ content }}" style="color: rgb({{ item.r }}, {{ item.g }}, {{ item.b }}); font-size: {{ item.size }}px;" data-index="{{ index }}" class="content-item">{{ item.t }}</view>
+</view>
+<!--<view catchtap='showChange' class="content-wrap" style='animation-duration: {{ time }}s'>-->
+ <!--<view wx:key="*13" wx:for="{{ content }}" style="color: rgb({{ item.r }}, {{ item.g }}, {{ item.b }}); font-size: {{ item.size }}px;" data-index="{{ index }}" class="content-item">{{ item.t }}</view>-->
+<!--</view>-->
+<scroll-view scroll-y wx:if="{{ show }}"  class="control">
+  <input focus="{{true}}" value="{{ inputext }}" bindblur="inputfinish" placeholder="请输入内容"/>
+  <view class="title">点击下面文字可单独设置每个文字的展示效果(英文效果待完善)</view>
+  <scroll-view scroll-x class="sc-wrap">
+    <view class="show-text">
+      <!--<text wx:key="*12" class="{{ textIndex == index ? 'active' : '' }}" catchtap="chooseText"  wx:for="{{ content }}" style="color: rgb({{ item.r }}, {{ item.g }}, {{ item.b }}); font-size: {{ item.size }}px;" data-index="{{ index }}">{{ item.t }}</text>-->
+      <text wx:key="*12" class="{{ textIndex == index ? 'active' : '' }}" catchtap="chooseText"  wx:for="{{ content }}" style="color: rgb({{ item.r }}, {{ item.g }}, {{ item.b }}); font-size: 20px;" data-index="{{ index }}">{{ item.t }}</text>
+    </view>
+  </scroll-view>
+  <view>
+    <view class="slider-set">
+      <text class="cfff">设置文字大小:</text>
+      <slider data-type="size" bindchange="sliderchange" value="{{ content[textIndex].size || allSize }}" min="100" max="300" show-value/>
+    </view>
+    <view class="slider-set">
+      <text class="cfff">设置文字颜色R:</text>
+      <slider data-type="r" bindchange="sliderchange" value="{{ content[textIndex].r === 0 ? 0 : content[textIndex].r ? content[textIndex].r : allR }}" min="0" max="255" show-value/>
+    </view>
+    <view class="slider-set">
+      <text class="cfff">设置文字颜色G:</text>
+      <slider data-type="g" bindchange="sliderchange" value="{{ content[textIndex].g === 0 ? 0 : content[textIndex].g ? content[textIndex].g : allG }}" min="0" max="255" show-value/>
+    </view>
+    <view class="slider-set">
+      <text class="cfff">设置文字颜色B:</text>
+      <slider data-type="b" bindchange="sliderchange" value="{{ content[textIndex].b === 0 ? 0 : content[textIndex].b ? content[textIndex].b : allB }}" min="0" max="255" show-value/>
+    </view>
+      <view class="slider-set">
+          <text class="cfff">快速设置颜色:</text>
+          <view class='color-wrap'>
+              <view class='fast-color' style="background: rgb({{ item.r }}, {{ item.g }}, {{ item.b }});" catchtap="fastColor" data-r="{{ item.r }}" data-g="{{ item.g }}" data-b="{{ item.b }}" wx:for="{{ colorArr }}" wx:key="*98"></view>
+          </view>
+      </view>
+      <view class="slider-set">
+          <text class="cfff">设置弹幕速度:</text>
+          <slider data-type="time" bindchange="sliderchange" value="{{ time }}" min="0.5" max="20" show-value/>
+      </view>
+  </view>
+  <ad unit-id="adunit-e61a81bff1cc12a6"></ad>
+  <view class='close' catchtap='showChange'>
+      <text>确定</text>
+      <text class='close-text'>点击广告是对我最大的支持~谢谢ლ(⌒▽⌒ლ)</text>
+  </view>
+    <button open-type='share'>分享弹幕神器给小伙伴</button>
+  <!--<button>-->
+      <navigator class='back' open-type='reLaunch' url='../index/index'>返回主页</navigator>
+  <!--</button>-->
+<!--<navigator open-type='reLaunch' url='../index/index'>返回主页</navigator>-->
+</scroll-view>
+
+

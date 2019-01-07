@@ -1,0 +1,11 @@
+<view class="index-nav">
+    <view style='background: linear-gradient(135deg, #{{ color_end }}, #{{ color_start }});' class="nav-con {{ show ? 'cricle' : '' }}" catchtap="_show">
+        <text class="n-c-1 ">体验更多</text>
+    </view>
+    <!--<view class="nav-open" hidden="{{ !show && !showT }}">-->
+    <view class="nav-open">
+        <navigator data-color='#{{ color_center }}' class="animationControl {{ show ? 'animationShow' : 'animationHide' }}" style="animation-delay: {{ show ? index * 0.2 : (navArr.length - 1 - index) * 0.2 }}s; background: linear-gradient({{ rotate }}deg, #{{ color_start }}, #{{ color_end }});" open-type="{{ item.type }}" url="{{ item.url }}" wx:for="{{ navArr }}">
+            {{ item.name }}
+        </navigator>
+    </view>
+</view>

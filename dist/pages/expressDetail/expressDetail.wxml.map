@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["pages/expressDetail/expressDetail.xml"],"sourcesContent":["<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->\r\n<view class=\"container\">\r\n  <text class=\"title\">{{ title }}</text>\r\n</view>\r\n"],"file":"expressDetail.wxml"}
