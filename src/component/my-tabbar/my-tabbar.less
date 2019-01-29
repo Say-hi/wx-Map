@@ -1,0 +1,39 @@
+
+.height {
+  height: 104rpx;
+}
+.tab-wrap {
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  height: 100rpx;
+  border-top: 2rpx solid #eee;
+  .scroll {
+    height: inherit;
+    width: 100%;
+    .scroll-in {
+      height: inherit;
+      display: flex;
+      align-items: center;
+    }
+    .tab-bar-item {
+      min-width: 180rpx;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: inherit;
+      image {
+        width: 54rpx;
+        height: 54rpx;
+      }
+      view {
+        font-size: 20rpx;
+      }
+    }
+  }
+}

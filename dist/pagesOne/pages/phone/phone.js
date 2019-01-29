@@ -2,17 +2,13 @@
 
 // 获取全局应用程序实例对象
 var app = getApp();
-// const soundUrl = 'https://sound-static.cqxcx.net'
-// const xapi = 'https://xapi.cqxcx.net'
-// const ad = 'https://ad.cqxcx.net'
 // 创建页面实例对象
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    title: 'phone',
-    randomName: '江文强',
+    randomName: 'MY LOVE',
     randomRemark: '你的小可爱',
     soundUrl: 'https://c.jiangwenqiang.com/music/glgl.mp3'
   },
@@ -114,7 +110,7 @@ Page({
     return {
       title: '您有一个好友来电请接听',
       path: '/pagesOne/pages/call/call?randomName=' + this.data.randomName + '&randomRemark=' + this.data.randomRemark + '&soundUrl=' + this.data.soundUrl,
-      imageUrl: '/images/phone.png'
+      imageUrl: 'https://7465-teach-1258324355.tcb.qcloud.la/image/phone.png'
     };
   },
 

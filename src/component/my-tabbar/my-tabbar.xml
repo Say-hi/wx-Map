@@ -1,0 +1,12 @@
+<view class="height"></view>
+<view class="tab-wrap">
+    <!--<scroll-view scroll-with-animation="{{true}}"  scroll-x="{{true}}" class="scroll" scroll-left="{{ 180 * selected }}rpx" scroll-into-view="{{ scrollid }}">-->
+    <scroll-view scroll-with-animation="{{true}}" scroll-x="{{true}}" class="scroll" scroll-into-view="{{ scrollid }}">
+        <view class="scroll-in">
+            <view wx:for="{{ list }}" id="index{{ index }}" data-type="{{ item.type }}" data-selected="{{ selected }}" wx:key="index" class="tab-bar-item {{ index == 4 ? 'more' : '' }}" data-path="{{ item.pagePath }}" data-index="{{ index }}" catchtap="goUrl">
+                <image mode="aspectFill" src="{{ selected == index ? item.selectedIconPath : item.iconPath }}"></image>
+                <view style="color: {{ selected == index ? selectedColor : color }}">{{item.text}}</view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

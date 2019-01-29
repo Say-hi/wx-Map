@@ -1,0 +1,10 @@
+<view class="tab-bar">
+  <scroll-view scroll-x="{{true}}" class="scroll">
+    <view class="scroll-in">
+      <view wx:for="{{ list }}" wx:key="index" class="tab-bar-item" data-path="{{ item.pagePath }}" data-index="{{ index }}" catchtap="switchTab">
+        <image mode="aspectFill" src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
+        <view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

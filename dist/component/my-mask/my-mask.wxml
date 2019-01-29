@@ -1,0 +1,11 @@
+<view class="mask {{ show ? maskShow ? 'maskShow' : 'maskClose' : '' }}">
+    <view catchtap="_maskChange" class="mask-close {{ closeChange ? 'show-close' : 'hide-close' }}">
+        <view class="close-line line-one"></view>
+        <view class="close-line line-two"></view>
+    </view>
+    <view class="mask-in">
+        <scroll-view scroll-y class="mask-scroll">
+            <slot></slot>
+        </scroll-view>
+    </view>
+</view>

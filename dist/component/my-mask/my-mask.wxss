@@ -1,0 +1,92 @@
+.mask {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+.mask .mask-close {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  position: absolute;
+  overflow: hidden;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  transition: all 0.5s;
+}
+.mask .mask-close .close-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 4rpx;
+  background: #fff;
+  transition: all 0.5s;
+}
+.mask .mask-close.show-close {
+  transform: translate(-50%, 0) scale(1.1);
+}
+.mask .mask-close.show-close .line-one {
+  transform: translate(-50%, -50%) rotateZ(225deg) scale(1);
+}
+.mask .mask-close.show-close .line-two {
+  transform: translate(-50%, -50%) rotateZ(-225deg) scale(1);
+}
+.mask .mask-close.hide-close {
+  transform: translate(-50%, 0) scale(0);
+}
+.mask .mask-close.hide-close .line-one {
+  transform: translate(-50%, -50%) rotateZ(0deg) scale(0);
+}
+.mask .mask-close.hide-close .line-two {
+  transform: translate(-50%, -50%) rotateZ(0deg) scale(0);
+}
+.mask .mask-in {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  height: 80%;
+  width: 100%;
+  padding: 10rpx;
+  background-color: #fff;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+}
+.mask .mask-scroll {
+  height: 100%;
+}
+.maskShow {
+  animation: 0.5s maskshow forwards;
+}
+@keyframes maskshow {
+  from {
+    width: 100%;
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+}
+.maskClose {
+  animation: 0.5s maskclose forwards;
+}
+@keyframes maskclose {
+  from {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  to {
+    width: 100%;
+    height: 0;
+    opacity: 0;
+  }
+}

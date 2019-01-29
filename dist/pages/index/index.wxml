@@ -1,71 +1,79 @@
-<!--用户信息-->
-<index-nav prop-start="{{ color_start }}" prop-rotate="{{ rotate }}" prop-center="{{ color_center }}" prop-end="{{ color_end }}"></index-nav>
-<!--<view catchtap="goToExpress" class="express">快递查询</view>-->
-<!--<view catchtap="goTodaohang" class="daohang">地图导航</view>-->
-<!--<navigator url="../voice/voice" class="vocie">聆听歌曲</navigator>-->
-<!--<navigator open-type="reLaunch" url="../danmu/danmu" style="transition: all 0.5s; background: linear-gradient({{ rotate }}deg, #{{ color_center }}, #{{ color_start }});" class="danmu">【手持弹幕神器】</navigator>-->
-<!--<navigator open-type="navigate" url="/pagesOne/pages/phone/phone" style="transition: all 0.5s; background: linear-gradient({{ rotate }}deg, #{{ color_start }}, #{{ color_end }});" class="danmu phone">【　搞怪来电　】</navigator>-->
-<button style="transition: all 0.5s; background: linear-gradient({{ rotate }}deg, #{{ color_start }}, #{{ color_center }}, #{{ color_end }});" open-type="share" class="shares" catchtap='showShares'>向朋友推荐小程序</button>
-<view wx:if='{{!show}}' class="user">
-    <open-data type="userAvatarUrl"></open-data>
-    <open-data type="groupName"></open-data>
+<!--全新的开始-->
+<view class="top-img biling pr">
+    <image mode="widthFix" src="{{ topDate.img }}"></image>
+    <view class="top-text pa">{{ topDate.s }}</view>
 </view>
 
-<view wx:if='{{show}}' class="top-date">
-    <image mode='{{ imgMode }}' class='top-img' src="{{ topDate.img }}"></image>
-    <view class='top-text'>{{ topDate.s }}</view>
+<view class="p20 tac w100 bb wrap">
+    <view wx:if="{{ weather.now.tmp.length > 0 }}" class="neonOne temperature biling">
+        {{ weather.now.tmp }}°
+    </view>
+    <view class="tac">
+        <button open-type="{{ locInfo ? '' : 'openSetting' }}"
+                class="form-btn user-site c232323 fw7"
+                catchtap="{{ locInfo ? 'chooseCity' : '' }}"
+                bindopensetting="opensetting">
+            {{ locInfo.addressComponent.city || '请授权获取您的地理位置信息' }}　{{ locInfo.addressComponent.district }}
+        </button>
+    </view>
+    <view catchtap="showNear" class="near-info c232323 arrow p10">查看周边信息</view>
 </view>
 
-<ad unit-id="adunit-e61a81bff1cc12a6"></ad>
-<!--天气信息-->
-<view class="weather">
-<!--{{ item >== 40 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' }}-->
-    <view class='cur-temperature'><text>{{ weatherData.curTemperature }}</text></view>
-    <view catchtap='chooseCity' class='choose-city'><text class='cur-city'>{{ weatherData.currentCity }}　{{ HeWeather.basic.city }}</text></view>
-    <view class="cur-info">
-        <text class="info">{{ weatherData.temperature }}/{{ weatherData.weatherDesc }}/{{ weatherData.wind }}</text>
-    </view>
-    <view class="pm25">
-        <text class="{{ weatherData.pm25 >= 75 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' }}">PM2.5:{{ weatherData.pm25 }}μg/m³</text>
-    </view>
-    <!--<view bindtap="{{ index == 'currentCity' ? 'chooseCity' : '' }}" class="{{ index }} {{ index == 'pm25' ? item > 75 ? 'iconfont icon-pm25fanghu red' : 'iconfont icon-pm25fanghu' : '' }}" wx:for="{{ weatherData }}"><text class="weater-name">{{ name[index] }}:</text>{{ index == 'currentCity' ? item + '   更换城市' : item }}{{ index == 'pm25' ? '微克/立方米' : '' }}</view>-->
-</view>
-<swiper indicator-dots="{{ dots }}" indicator-color='rgba(0,0,0,.3)' indicator-active-color="#0094ff" circular="{{ circular }}" autoplay="{{ autoplay }}"  duration="500">
-    <swiper-item class='dayliy-item' wx:for="{{ HeWeather.daily_forecast }}" wx:key="unique">
-        <view class='iconfont icon-shijian'><text>{{ item.date }}</text></view>
-        <view class='sun'>
-            <text class='iconfont icon-dpc69'>朝霞:{{ item.astro.sr }}</text>
-            <text class='iconfont icon-yueliang1'>夕阳:{{ item.astro.ss }}</text>
-        </view>
-        <view class='iconfont icon-wendu'><text>温度:{{  item.tmp.max }}~{{ item.tmp.min }}°</text></view>
-        <view class='rain'>
-            <view class='iconfont icon-xiayu'>下雨概率:{{ item.pop }}%</view>
-            <view class='iconfont icon-shidu'>相对湿度:{{ item.hum }}%RH</view>
-        </view>
-        <view class="wind">
-            <view class='iconfont icon-yanjing'>能见度:{{ item.vis }}km</view>
-            <view class='iconfont icon-fengxiang'>风向:{{ item.wind.dir }}</view>
-        </view>
-        <view class="wind2">
-            <view class='iconfont icon-fengli'>风力:{{ item.wind.sc }}</view>
-            <view class='iconfont icon-fengsuqiang'>风速:{{ item.wind.spd }}kmph</view>
+<swiper class="bb"
+        style="height: 350rpx;"
+        previous-margin="30rpx"
+        next-margin="30rpx">
+    <swiper-item class="f28 bb p10"
+                 wx:for="{{ weatherSeven }}"
+                 wx:key="*3">
+        <view class="weather-info bb br20 p20">
+            <view class="f32 neonOne tac">{{ item.date }}</view>
+            <view class="w-i-item f28">
+                <view><text>朝　　霞:</text>　<text class="neonOne">{{ item.sr }}</text></view>
+                <view><text>夕　　阳:</text>　<text class="neonOne">{{ item.ss }}</text></view>
+            </view>
+            <view class="w-i-item f28">
+                <view><text>风　　力:</text>　<text class="neonOne">{{ item.wind_sc }}</text>级</view>
+                <view><text>风　　速:</text>　<text class="neonOne">{{ item.wind_spd }}kmph</text></view>
+            </view>
+            <view class="w-i-item f28">
+                <view><text>能  见  度:</text>　<text class="neonOne">{{ item.vis }}km</text></view>
+                <view><text>风　　向:</text>　<text class="">{{ item.wind_dir }}</text></view>
+            </view>
+            <view class="w-i-item f28">
+                <view><text>下雨概率:</text>　<text class="neonOne">{{ item.pop }}％</text></view>
+                <view><text>相对湿度:</text>　<text class="neonOne">{{ item.hum }}</text></view>
+            </view>
         </view>
     </swiper-item>
 </swiper>
-<!--舒适度指数-->
-<view class="zs">
-    <view class="zs-things">
-        <block wx:for='{{ weatherAll.index }}' wx:key="*342">
-            <view class="tipt iconfont {{ zsIcon[index] }}"><text>{{ item.des }}</text></view>
-        </block>
+
+<view class="p20 bb bt1 mt20" wx:if="{{ baiduWeather.index }}">
+    <view wx:for="{{ baiduWeather.index }}"
+          class="iconfont {{ index != 4 ? 'bd1' : '' }} p10 {{ zsIcon[index] }} baidu-weather"
+          wx:key="*4">
+        <view class="chinese">
+            <view class="f32"><text>{{ item.tipt }}：</text><text>{{ item.zs }}</text></view>
+            <view class="f28 mt10">{{ item.des }}</view>
+        </view>
     </view>
 </view>
-<view catchtap='hideindex' wx:if="{{ shows }}" class="mask">
-    <view class="mask-in">
-        <view>{{ indexInfo.title }}</view>
-        <import src="../../wxParse/wxParse"></import>
-        <template is="wxParse" data="{{ wxParseData: content.nodes }}"></template>
-        <!--<image mode='aspectFit' src="{{ indexInfo.image }}"></image>-->
-        <!--<view wx:key="*1244" wx:for="{{ indexInfo.content }}">{{ item }}</view>-->
+<my-music></my-music>
+<my-tabbar></my-tabbar>
+<my-mask prop-maskshow="{{ maskshow }}">
+    <view catchtap="goPoint"
+          data-index="{{ index }}"
+          class="bd1 p20 bb pr"
+          wx:for="{{ locInfo.pois }}"
+          wx:key="*1">
+        <view class="f28">{{ item.name }}</view>
+        <view wx:for="{{ item.tag }}"
+              wx:key="*2"
+              class="tag f22 cfff mr20 p010 br20"
+              wx:if="{{ iitem && iitem.length > 1 }}"
+              wx:for-item="iitem">{{ iitem }}</view>
+        <view class="iconfont f28 c999 icon-zoulu- pa">去这里</view>
     </view>
-</view>
+    <view class="tac f28 c999 p20" wx:if="{{ !locInfo.pois.length }}">周边暂无相关信息哦</view>
+</my-mask>
+<my-load wx:if="{{ loading }}"></my-load>

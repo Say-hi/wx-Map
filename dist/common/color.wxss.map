@@ -1,0 +1,1 @@
+{"version":3,"sources":["common/color.less"],"names":[],"mappings":"AAAA;EACE,cAAA;;AAEF;EACE,WAAA;;AAEF;EACE,WAAA","sourcesContent":[".c232323 {\r\n  color: #232323;\r\n}\r\n.cfff {\r\n  color: #fff;\r\n}\r\n.c999 {\r\n  color: #999;\r\n}"],"file":"color.wxss"}

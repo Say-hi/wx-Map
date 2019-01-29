@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["component/my-load/my-load.xml"],"sourcesContent":["<view class=\"loading\">\r\n    <view class=\"loading-content\">\r\n        <image mode=\"aspectFill\" src=\"{{ loading }}\"></image>\r\n    </view>\r\n</view>\r\n"],"file":"my-load.wxml"}

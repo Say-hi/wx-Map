@@ -1,0 +1,133 @@
+image {
+  display: block;
+}
+@keyframes biling {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 120%;
+  }
+}
+.biling {
+  position: relative;
+  overflow: hidden;
+}
+.biling:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  left: -40%;
+  width: 50%;
+  height: 100%;
+  opacity: 0.5;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+  transform: skewX(-25deg);
+  animation: 1.5s biling linear infinite;
+}
+.arrow {
+  position: relative;
+}
+.arrow:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -10rpx;
+  transform: translate(0, -50%) scaleX(1.5) rotateZ(45deg);
+  width: 18rpx;
+  height: 18rpx;
+  border: 2rpx solid #232323;
+  border-radius: 10rpx;
+  border-color: #232323 #232323 transparent transparent;
+}
+.bb {
+  box-sizing: border-box;
+}
+.bd1 {
+  border-bottom: 2rpx solid #eee;
+}
+.bt1 {
+  border-top: 2rpx solid #eee;
+}
+.br20 {
+  border-radius: 20rpx;
+}
+.p20 {
+  padding: 20rpx;
+}
+.p10 {
+  padding: 10rpx;
+}
+.p010 {
+  padding: 0 10rpx;
+}
+.pr {
+  position: relative;
+}
+.pa {
+  position: absolute;
+}
+.w100 {
+  width: 100%;
+}
+.height {
+  height: 102rpx;
+}
+.tac {
+  text-align: center;
+}
+.form-btn {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  line-height: inherit;
+  background-color: transparent;
+}
+.form-btn:before,
+.form-btn:after {
+  border: none;
+  border-radius: 0;
+}
+.fw7 {
+  font-weight: 700;
+}
+.f22 {
+  font-size: 22rpx;
+}
+.f28 {
+  font-size: 28rpx;
+}
+.f30 {
+  font-size: 30rpx;
+}
+.f32 {
+  font-size: 32rpx;
+}
+.mt20 {
+  margin-top: 20rpx;
+}
+.mt10 {
+  margin-top: 10rpx;
+}
+.mr20 {
+  margin-right: 20rpx;
+}
+.neonOne {
+  font-family: 'neonOne' !important;
+  font-size: 36rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.chinese {
+  font-family: 'chinese' !important;
+  font-size: 36rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.tac {
+  text-align: center;
+}

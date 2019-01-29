@@ -1,0 +1,38 @@
+.height {
+  height: 104rpx;
+}
+.tab-wrap {
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  height: 100rpx;
+  border-top: 2rpx solid #eee;
+}
+.tab-wrap .scroll {
+  height: inherit;
+  width: 100%;
+}
+.tab-wrap .scroll .scroll-in {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+.tab-wrap .scroll .tab-bar-item {
+  min-width: 180rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: inherit;
+}
+.tab-wrap .scroll .tab-bar-item image {
+  width: 54rpx;
+  height: 54rpx;
+}
+.tab-wrap .scroll .tab-bar-item view {
+  font-size: 20rpx;
+}

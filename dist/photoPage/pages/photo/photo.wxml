@@ -1,0 +1,16 @@
+<view class='wrap'>
+    <image catchtap='chooseImage' id='showImg' mode="widthFix" src="{{ BackshowImg || showImg }}"></image>
+    <canvas catchtap='showList' id="jwq"  canvas-id='myCanvas' style='position:fixed;top:-1500px;left:0;z-index:999; background:#f00;margin: 0;padding: 0;display: block;width:{{wdith}}px;height:{{height}}px;'></canvas>
+    <!--<view wx:if='{{ BackshowImg }}' catchtap='savePhoto' class="save-btn">保存至相册</view>-->
+    <!--<view catchtap='savePhoto' class="save-btn">保存至相册</view>-->
+</view>
+<scroll-view scroll-x class="operation">
+    <view class='oscroll'>
+        <view catchtap='getbase64' data-model='{{item.model}}' class='op-b' wx:for="{{ bottomList }}" wx:for-key="*53">
+            <image mode="widthFix" src="{{item.url}}"></image>
+            <view class='name'>{{ item.name }}</view>
+        </view>
+    </view>
+</scroll-view>
+
+<my-load wx:if="{{ loading }}"></my-load>

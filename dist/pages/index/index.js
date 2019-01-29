@@ -3,9 +3,7 @@
 // 获取全局应用程序实例对象
 /*eslint-disable*/
 var app = getApp();
-var bmap = require('../../utils/bmap-wx');
 var wxparse = require('../../wxParse/wxParse');
-var timer = null;
 // 创建页面实例对象
 Page({
   /**
@@ -13,84 +11,125 @@ Page({
    */
   data: {
     showText: '体验更多',
-    // rotate: 135,
-    // color_start: 'fff000',
-    // color_center: 'fff000',
-    // color_end: 'ff0000',
-    title: 'Index page',
-    dots: true,
-    circular: false,
-    autoplay: false,
-    userInfo: {},
-    imgMode: 'aspectFill',
     show: false,
-    weatherData: '',
-    weatherText: ['当前城市', 'PM2.5', '日期', '温度', '天气', '风力'],
     zsIcon: ['icon-chuanyikunhuo', 'icon-xiche', 'icon-ganmaozhishu', 'icon-yundong', 'icon-ziwaixian']
   },
-  changeColor: function changeColor() {
-    if (timer) clearInterval(timer);
+  getLocation: function getLocation() {
     var that = this;
-    var colorArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
-    timer = setInterval(function () {
-      var color_start = '',
-          color_end = '',
-          color_center = '';
-      for (var i = 0; i < 6; i++) {
-        color_start += colorArr[Math.floor(Math.random() * 16)];
-      }
-      for (var _i = 0; _i < 6; _i++) {
-        color_center += colorArr[Math.floor(Math.random() * 16)];
-      }
-      for (var _i2 = 0; _i2 < 6; _i2++) {
-        color_end += colorArr[Math.floor(Math.random() * 16)];
+    wx.getLocation({
+      type: 'gcj02',
+      success: function success(res) {
+        app.data.lat = res.latitude;
+        app.data.lng = res.longitude;
+        that.getBaiduMap(res.latitude, res.longitude);
+      },
+      fail: function fail(res) {}
+    });
+  },
+  getBaiduMap: function getBaiduMap(lat, lng) {
+    var that = this;
+    this.setData({
+      loading: true
+    });
+    app.cloud().getbaidumap({
+      type: 'baiduweather',
+      location: lng + ',' + lat
+    }).then(function (res) {
+      that.setData({
+        baiduWeather: res.results[0]
+      });
+    });
+
+    app.cloud().getbaidumap({
+      location: lat + ',' + lng
+    }).then(function (res) {
+      if (res.result.pois && res.result.pois.length >= 1) {
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = res.result.pois[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var v = _step.value;
+
+            v.tag = v.tag.split(';');
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator.return) {
+              _iterator.return();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
       }
       that.setData({
-        color_center: color_center,
-        color_start: color_start,
-        color_end: color_end,
-        rotate: Math.floor(Math.random() * 181)
-      });
-    }, 700);
-  },
-  showToast: function showToast() {
-    wx.showToast({
-      title: '功能开发中...',
-      icon: 'loading'
+        locInfo: res.result
+      }, that.getWeatherData);
     });
   },
-
-  /**
-   * 去到快递查询
-   */
-  goToExpress: function goToExpress() {
-    wx.navigateTo({
-      url: '../express/express'
-    });
-  },
-  goTodaohang: function goTodaohang() {
-    wx.navigateTo({
-      url: '../AppUrl/AppUrl'
-    });
-  },
-
-  /**
-   * 选择城市
-   */
-  chooseCity: function chooseCity() {
-    // let obj = {
-    //   type: 'gcj02',
-    //   success (res) {
-    //     console.log(res)
-    //   }
-    // }
-    // wx.getLocation(obj)
+  getWeatherData: function getWeatherData() {
     var that = this;
-    var obj = {
+    app.cloud().getWeather({ type: 'now', location: app.data.lng + ',' + app.data.lat }).then(function (res) {
+      that.setData({
+        weather: res.HeWeather6[0]
+      }, that.getSevenWeatherData);
+    }).catch(function (err) {
+      console.log(err);
+      that.getWeatherData();
+    });
+  },
+  getSevenWeatherData: function getSevenWeatherData() {
+    var that = this;
+    app.cloud().getWeather({ type: 'forecast', location: app.data.lng + ',' + app.data.lat }).then(function (res) {
+      that.setData({
+        weatherSeven: res.HeWeather6[0].daily_forecast,
+        loading: false
+      });
+      wx.stopPullDownRefresh();
+    }).catch(function (err) {
+      console.log(err);
+      that.getSevenWeatherData();
+    });
+  },
+  getDayNote: function getDayNote() {
+    var that = this;
+    if (this.data.topDate) return;
+    app.cloud().getdatanote({ date: new Date().getFullYear() + '-' + (new Date().getMonth() * 1 + 1) + '-' + new Date().getDate() }).then(function (res) {
+      that.setData({
+        topDate: res.data,
+        show: true
+      });
+      wx.setStorageSync('topDate', res.data);
+    }).catch(function (err) {
+      that.setData({
+        topDate: wx.getStorageSync('topDate')
+      });
+    });
+  },
+  opensetting: function opensetting(e) {
+    if (e.detail.authSetting['scope.userLocation']) {
+      var that = this;
+      setTimeout(function () {
+        that.getLocation();
+      }, 100);
+    }
+  },
+  chooseCity: function chooseCity() {
+    var that = this;
+    wx.chooseLocation({
       success: function success(res) {
-        // console.log(res)
-        var site = res.longitude + ',' + res.latitude;
-        that.Bmap(that, site);
+        app.data.lat = res.latitude;
+        app.data.lng = res.longitude;
+        setTimeout(function () {
+          that.getBaiduMap(res.latitude, res.longitude);
+        }, 100);
       },
       cancel: function cancel(res) {
         console.log(res);
@@ -98,72 +137,21 @@ Page({
       fail: function fail(res) {
         console.log(res);
       }
-    };
-    wx.chooseLocation(obj);
-  },
-
-  /**
-   * 百度地图函数
-   * @param that
-   * @constructor
-   */
-  Bmap: function Bmap(that, site) {
-    // var _this = that
-    var _this = this;
-    var BMap = new bmap.BMapWX({
-      ak: 'mIjA3xq45izQn0ej132vqufm3FAvOy4G'
     });
-    var fail = function fail(data) {
-      // console.log('fail!!!!')
-    };
-    var success = function success(data) {
-      // console.log('success!!!')
-      var weatherData = data.currentWeather[0];
-      var weatherAll = data.originalData.results[0];
-      var name = {};
-      var array = that.data.weatherText;
-      var i = 0;
-      for (var index in weatherData) {
-        name[index] = array[i++];
-      }
-      that.setData({
-        weatherData: weatherData,
-        weatherAll: weatherAll,
-        name: name
-      });
-    };
-    BMap.weather({
-      fail: fail,
-      success: success,
-      location: site || null
-    }, _this);
   },
-
-  // 获取51每日一言数据
-  getDayNote: function getDayNote() {
+  showNear: function showNear() {
+    this.setData({
+      maskshow: !this.data.maskshow
+    });
+  },
+  goPoint: function goPoint(e) {
     var that = this;
-    var date = new Date();
-    var time = date.getFullYear() + '-' + (date.getMonth() * 1 + 1) + '-' + date.getDate();
-    wx.request({
-      url: 'https://www.51wnl.com/Api4.3.3/GetSentenceByDate.ashx',
-      method: 'GET',
-      data: {
-        date: time,
-        cc: 'cn'
-      },
-      success: function success(res) {
-        that.setData({
-          topDate: res.data.data,
-          show: true
-        });
-        wx.setStorageSync('topDate', res.data.data);
-      },
-      fail: function fail() {
-        that.setData({
-          topDate: wx.getStorageSync('topDate')
-        });
-        // console.log(res)
-      }
+    wx.openLocation({
+      latitude: that.data.locInfo.pois[e.currentTarget.dataset.index].point.y,
+      longitude: that.data.locInfo.pois[e.currentTarget.dataset.index].point.x,
+      scale: 15,
+      name: that.data.locInfo.pois[e.currentTarget.dataset.index].name,
+      address: that.data.locInfo.pois[e.currentTarget.dataset.index].address
     });
   },
   showShares: function showShares() {
@@ -201,26 +189,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function onLoad() {
-    var date = new Date();
-    var hour = date.getHours();
-    if (hour >= 18) {
-      this.setData({
-        curtime: 1 // 晚上
-      });
-    } else {
-      this.setData({
-        curtime: 0 // 白天
-      });
-    }
+    this.getLocation();
     this.getIndexData();
-    var that = this;
-    // 百度地图
-    that.Bmap(that);
-  },
-  hideindex: function hideindex() {
-    this.setData({
-      shows: !this.data.shows
-    });
+    app.cloud().login();
+    app.loadFontE();
+    app.loadFontC();
   },
 
   /**
@@ -232,7 +205,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function onShow() {
-    this.changeColor();
+    // this.changeColor()
     this.getDayNote();
     if (wx.getStorageSync('topDate')) {
       this.setData({
@@ -247,7 +220,6 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function onHide() {
-    if (timer) clearInterval(timer);
     // console.log(' ---------- onHide ----------')
   },
 
@@ -255,7 +227,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function onUnload() {
-    if (timer) clearInterval(timer);
     // console.log(' ---------- onUnload ----------')
   },
 
@@ -263,13 +234,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function onPullDownRefresh() {
-    // console.log(' ---------- onPullDownRefresh ----------')
-    var that = this;
-    that.Bmap(that);
     this.getIndexData();
-    setTimeout(function () {
-      wx.stopPullDownRefresh();
-    }, 4000);
+    this.getLocation();
   },
 
   onShareAppMessage: function onShareAppMessage() {

@@ -1,0 +1,5 @@
+<view class="loading">
+    <view class="loading-content">
+        <image mode="aspectFill" src="{{ loading }}"></image>
+    </view>
+</view>

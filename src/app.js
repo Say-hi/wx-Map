@@ -5,26 +5,17 @@
  * > 小程序支持以`CommonJS`规范组织代码结构
  */
 // const Promise = require('./utils/bluebird')
-
+const cloud = require('./utils/cloud')
 App({
-  /**
-   * Global shared
-   * 可以定义任何成员，用于在整个应用中共享
-   */
   data: {
-    name: 'WeApp Boilerplate',
+    lat: null,
+    lng: null,
+    selected: 0,
+    name: 'Smile weChat Mini Program',
     version: '0.1.0',
-    userInfo: null,
-    baseDomain: 'https://c.jiangwenqiang.com',
-    // 和风天气免费api 4000次/日
-    hefenUrl: 'https://free-api.heweather.com/v5/',
-    hefenKey: '10c6e97476d54c1f86d8ffcd5639475b',
-    recentlyData: 'forecast?city=yourcity&key=yourkey', // 最近三天的数据
-    citySearch: 'search?city=yourcity&key=yourkey' // 城市搜索
+    authInfo: 'https://c.jiangwenqiang.com',
+    baseDomain: 'https://c.jiangwenqiang.com'
   },
-
-  // 不是只能定义`data`，别的也可以
-  other: 'other variables',
   wxrequest (obj) {
     wx.request({
       url: obj.url,
@@ -38,22 +29,33 @@ App({
       complete: obj.complete || function () {}
     })
   },
+  gs (key) {
+    return wx.getStorageSync(key || 'openid')
+  },
+  su (key, data) {
+    wx.setStorageSync(key, data)
+  },
+  cloud () {
+    return cloud
+  },
+  loadFontE () {
+    wx.loadFontFace({
+      family: 'neonOne',
+      source: 'url("https://teach-1258261086.cos.ap-guangzhou.myqcloud.com/font/NeonOne.otf")'
+    })
+  },
+  loadFontC () {
+    wx.loadFontFace({
+      family: 'chinese',
+      source: 'url("https://7465-teach-1258324355.tcb.qcloud.la/chinese.ttf")'
+    })
+  },
   /**
    * 生命周期函数--监听小程序初始化
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch () {
-    this.wxrequest({
-      url: this.data.baseDomain + '/api/zfb.json',
-      success (res) {
-        wx.setClipboardData({
-          data: res.data[0].content,
-          success () {
-            wx.hideToast()
-          }
-        })
-      }
-    })
+    wx.clearStorageSync()
     console.log(' ========== Application is launched ========== ')
   },
   /**

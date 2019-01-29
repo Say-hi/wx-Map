@@ -10,9 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: 'call',
-    randomName: '阿斯顿发',
-    randomRemark: '阿斯顿发',
+    randomName: 'MY LOVE',
+    randomRemark: 'MY LOVE',
     soundUrl: 'https://c.jiangwenqiang.com/music/glgl.mp3'
   },
   back () {

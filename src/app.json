@@ -1,25 +1,67 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/danmu/danmu",
-    "pages/voice/voice",
-    "pages/photo/joke",
-    "pages/money/money",
-    "pages/AppUrl/AppUrl",
-    "pages/express/express",
-    "pages/ddemo/ddemo",
-    "pages/expressJump/expressJump",
-    "pages/joke/joke"
-//    "pages/phone/phone",
-//    "pages/call/call"
-    // Dont remove this comment
+    "pages/index/index" // 首页
+//    "pages/danmu/danmu",
+//    "pages/voice/voice",
+//    "pages/photo/photo", // 腾讯人脸融合
+//    "pages/money/money", // 汇率计算
+//    "pages/AppUrl/AppUrl",
+//    "pages/express/express",
+//    "pages/mine/mine", // 我的简介
+//    "pages/expressJump/expressJump",
+//    "pages/joke/joke"
   ],
+  "usingComponents": {
+    "index-nav": "/component/index-nav/index-nav",
+    "my-load": "/component/my-load/my-load",
+    "my-mask": "/component/my-mask/my-mask",
+    "my-tabbar": "/component/my-tabbar/my-tabbar",
+    "my-music": "/component/my-music/my-music",
+    "form-button": "/component/my-btn/my-btn"
+  },
   "subPackages": [
     {
       "root": "pagesOne",
+      "name": "phone",
       "pages": [
         "pages/phone/phone",
         "pages/call/call"
+      ]
+    },
+    {
+      "root": "expressPage",
+      "name": "express",
+      "pages": [
+        "pagesout/express/express",
+        "pagesout/expressJump/expressJump"
+      ]
+    },
+    {
+      "root": "minePage",
+      "name": "mine",
+      "pages": [
+        "pages/mine/mine"
+      ]
+    },
+    {
+      "root": "moneyPage",
+      "name": "money",
+      "pages": [
+        "pages/money/money"
+      ]
+    },
+    {
+      "root": "danmuPage",
+      "name": "danmu",
+      "pages": [
+        "pages/danmu/danmu"
+      ]
+    },
+    {
+      "root": "photoPage",
+      "name": "photo",
+      "pages": [
+        "pages/photo/photo"
       ]
     }
   ],
@@ -49,38 +91,45 @@
   },
   // Tab bar configuration
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#tabBar
-  "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#0094ff",
-    "borderStyle": "black",
-    "backgroundColor": "#fff",
-    "list": [
-      {
-        "text": "Weather",
-        "pagePath": "pages/index/index",
-        "iconPath": "images/index.png",
-        "selectedIconPath": "images/index_HL.png"
-      },
-      {
-        "text": "Conversion",
-        "pagePath": "pages/money/money",
-        "iconPath": "images/money.png",
-        "selectedIconPath": "images/money_HL.png"
-      },
-      {
-        "text": "图FUN",
-        "pagePath": "pages/photo/joke",
-        "iconPath": "images/joke.png",
-        "selectedIconPath": "images/joke_hl.png"
-      },
-      {
-        "text": "AboutMe",
-        "pagePath": "pages/ddemo/ddemo",
-        "iconPath": "images/hi.png",
-        "selectedIconPath": "images/hi_HL.png"
-      }
-    ]
+//  "tabBar": {
+//    "custom": true,
+//    "color": "#999999",
+//    "selectedColor": "#0094ff",
+//    "borderStyle": "black",
+//    "backgroundColor": "#fff",
+//    "list": [
+//      {
+//        "text": "Weather",
+//        "pagePath": "pages/index/index",
+//        "iconPath": "images/index.png",
+//        "selectedIconPath": "images/index_HL.png"
+//      },
+//      {
+//        "text": "Conversion",
+//        "pagePath": "pages/money/money",
+//        "iconPath": "images/money.png",
+//        "selectedIconPath": "images/money_HL.png"
+//      },
+//      {
+//        "text": "图FUN",
+//        "pagePath": "pages/photo/photo",
+//        "iconPath": "images/joke.png",
+//        "selectedIconPath": "images/joke_hl.png"
+//      },
+//      {
+//        "text": "AboutMe",
+//        "pagePath": "pages/mine/mine",
+//        "iconPath": "images/hi.png",
+//        "selectedIconPath": "images/hi_HL.png"
+//      }
+//    ]
+//  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置信息用于获取天气信息"
+    }
   },
+  "requiredBackgroundModes": ["audio"],
   // Network timeout configuration
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#networkTimeout
   "networkTimeout": {

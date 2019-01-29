@@ -1,1 +1,0 @@
-{"version":3,"sources":["pages/expressDetail/expressDetail.less"],"names":[],"mappings":"AAAA;EACE,gBAAA","sourcesContent":[".title {\r\n  font-size: 40rpx;\r\n}\r\n"],"file":"expressDetail.wxss"}

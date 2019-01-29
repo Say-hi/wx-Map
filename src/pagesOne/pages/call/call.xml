@@ -1,3 +1,4 @@
+<view style="height: 100rpx;"></view>
 <view class="topText">{{ randomName }}</view>
 <view class="remarkText">{{ randomRemark }}</view>
 

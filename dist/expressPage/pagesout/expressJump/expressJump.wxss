@@ -1,0 +1,77 @@
+.title {
+  line-height: 160rpx;
+  text-align: center;
+  font-weight: 800;
+  font-size: 40rpx;
+  background: linear-gradient(#7FC06E, #fff);
+  position: relative;
+}
+.save {
+  position: fixed;
+  top: 20rpx;
+  right: 20rpx;
+  border: 2rpx solid #eee;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 30rpx;
+  background-color: #7FC06E;
+  z-index: 100;
+  padding: 10rpx 20rpx;
+}
+.content {
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  margin: 20rpx 0;
+}
+.content .dot {
+  position: relative;
+  width: 130rpx;
+  height: 100rpx;
+}
+.content .dot::before {
+  content: '';
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: block;
+  position: absolute;
+  top: 40rpx;
+  left: 40rpx;
+  z-index: 99;
+}
+.content .dot::after {
+  content: '';
+  width: 6rpx;
+  height: 150rpx;
+  background-color: #ccc;
+  display: block;
+  position: absolute;
+  top: 0rpx;
+  left: 50rpx;
+  z-index: 98;
+}
+.content .first::before {
+  background-color: #4bff4b;
+}
+.content .first::after {
+  background: linear-gradient(180deg, #4bff4b, #4bff4b, #ccc, #ccc);
+}
+.content .content-wrap {
+  flex: 1;
+  position: relative;
+  line-height: 30rpx;
+  font-size: 26rpx;
+  text-align: left;
+}
+.content .content-wrap .site {
+  margin-top: 10rpx;
+}
+.content .content-wrap .phone {
+  position: absolute;
+  top: 40rpx;
+  left: -50rpx;
+  font-size: 40rpx;
+}

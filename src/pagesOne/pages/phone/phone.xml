@@ -1,3 +1,4 @@
+
 <view class="inputValue">
   <text>呼入名称:</text>
   <input bindinput="inputValue" data-type="name" value="{{ randomName }}" />

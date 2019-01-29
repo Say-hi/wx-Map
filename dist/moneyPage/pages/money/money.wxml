@@ -1,0 +1,19 @@
+<view class="wrap">
+    <block wx:for="{{ itemArr }}" wx:key="*99">
+        <view data-index="{{ index }}" catchtap='choose' class="out-wrap {{ curChoose == index ? 'cur' : '' }} {{ (curChoose != 'xxx' && showFlag) ? '' : 'noclick' }}">
+            <view class="one"><image src="{{ item.img }}"></image><text>{{ item.country }}</text></view>
+            <view class="two"><text class='rate'>{{ item.rate }}</text><text>{{ item.moneyKind }}</text></view>
+        </view>
+    </block>
+    <view class='tac f22 c999 p10'>本服务仅供参考，请以您的地方银行汇率为准</view>
+    <view class="wrap2">
+        <block wx:for='{{ caculateArr }}' wx:key="*98">
+            <text catchtap='number' data-index='{{ index }}' class="neonOne {{ curIndex == index ? 'curIndex' : '' }}">{{ item }}</text>
+        </block>
+    </view>
+</view>
+<my-load wx:if="{{ loading }}"></my-load>
+<my-tabbar></my-tabbar>
+<!--<view class='tips'>-->
+    <!--<view>很抱歉由于第三方服务器证书问题，暂时无法使用相关功能</view>-->
+<!--</view>-->
