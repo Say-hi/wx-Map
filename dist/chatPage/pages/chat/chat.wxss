@@ -1,0 +1,103 @@
+page {
+  background-color: #eee;
+  height: 100%;
+}
+.bgimg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.chat-area {
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+  padding-bottom: 100rpx;
+}
+.chat-area image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 8%;
+}
+.block {
+  display: flex;
+  margin: 30rpx 0;
+}
+.name-text {
+  font-size: 22rpx;
+  margin-bottom: 4rpx;
+  margin-top: -15rpx;
+}
+.content {
+  font-size: 28rpx;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  display: inline-block;
+}
+.robot .block-content {
+  margin-left: 20rpx;
+}
+.robot .name-text {
+  color: #ff4c63;
+}
+.robot .content {
+  position: relative;
+}
+.robot .content:before {
+  content: '';
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  transform: translateX(-50%) rotateZ(45deg);
+  background-color: #fff;
+  width: 16rpx;
+  height: 16rpx;
+}
+.user .block-content {
+  text-align: right;
+  margin-right: 20rpx;
+}
+.user .name-text {
+  color: #fff;
+}
+.user .content {
+  position: relative;
+}
+.user .content:before {
+  content: '';
+  position: absolute;
+  top: 20rpx;
+  right: 0;
+  transform: translateX(50%) rotateZ(45deg);
+  background-color: #fff;
+  width: 16rpx;
+  height: 16rpx;
+}
+.block-content {
+  flex: 1;
+}
+button {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+button:before,
+button:after {
+  border: none;
+}
+.input-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+  padding: 10rpx;
+}
+.input-area input {
+  height: 80rpx;
+  line-height: 80rpx;
+}

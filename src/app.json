@@ -1,15 +1,6 @@
 {
   "pages": [
     "pages/index/index" // 首页
-//    "pages/danmu/danmu",
-//    "pages/voice/voice",
-//    "pages/photo/photo", // 腾讯人脸融合
-//    "pages/money/money", // 汇率计算
-//    "pages/AppUrl/AppUrl",
-//    "pages/express/express",
-//    "pages/mine/mine", // 我的简介
-//    "pages/expressJump/expressJump",
-//    "pages/joke/joke"
   ],
   "usingComponents": {
     "index-nav": "/component/index-nav/index-nav",
@@ -63,8 +54,28 @@
       "pages": [
         "pages/photo/photo"
       ]
+    },
+    {
+      "root": "chatPage",
+      "name": "chat",
+      "pages": [
+        "pages/chat/chat"
+      ]
     }
   ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": [
+        "chat",
+        "mine",
+        "express",
+        "danmu",
+        "money",
+        "phone"
+      ]
+    }
+  },
   // Window configuration
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#window
   "window": {
@@ -89,41 +100,6 @@
     // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/app-service/page.html?t=1476197491005#页面相关事件处理函数
     "enablePullDownRefresh": false
   },
-  // Tab bar configuration
-  // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#tabBar
-//  "tabBar": {
-//    "custom": true,
-//    "color": "#999999",
-//    "selectedColor": "#0094ff",
-//    "borderStyle": "black",
-//    "backgroundColor": "#fff",
-//    "list": [
-//      {
-//        "text": "Weather",
-//        "pagePath": "pages/index/index",
-//        "iconPath": "images/index.png",
-//        "selectedIconPath": "images/index_HL.png"
-//      },
-//      {
-//        "text": "Conversion",
-//        "pagePath": "pages/money/money",
-//        "iconPath": "images/money.png",
-//        "selectedIconPath": "images/money_HL.png"
-//      },
-//      {
-//        "text": "图FUN",
-//        "pagePath": "pages/photo/photo",
-//        "iconPath": "images/joke.png",
-//        "selectedIconPath": "images/joke_hl.png"
-//      },
-//      {
-//        "text": "AboutMe",
-//        "pagePath": "pages/mine/mine",
-//        "iconPath": "images/hi.png",
-//        "selectedIconPath": "images/hi_HL.png"
-//      }
-//    ]
-//  },
   "permission": {
     "scope.userLocation": {
       "desc": "您的位置信息用于获取天气信息"

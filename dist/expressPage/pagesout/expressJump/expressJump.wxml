@@ -14,4 +14,5 @@
         </view>
     </view>
 </view>
+<my-music></my-music>
 <my-load wx:if="{{ loading }}"></my-load>

@@ -1,7 +1,7 @@
 // 获取全局应用程序实例对象
 /*eslint-disable*/
 const app = getApp()
-const wxparse = require('../../wxParse/wxParse')
+// const wxparse = require('../../wxParse/wxParse')
 // 创建页面实例对象
 Page({
   /**
@@ -155,31 +155,31 @@ Page({
     }
   },
   // 获取服务器json数据
-  getIndexData () {
-    var that = this
-    app.wxrequest({
-      url: app.data.baseDomain + '/api/wechatIndex2.json',
-      data: {},
-      success (res) {
-        wxparse.wxParse('content', 'html',res.data[0].content,that,5)
-        that.setData({
-          indexInfo: res.data[0],
-          shows: res.data[0].show == 1 ? true : false
-        })
-      }
-    })
-  },
+  // getIndexData () {
+  //   var that = this
+  //   app.wxrequest({
+  //     url: app.data.baseDomain + '/api/wechatIndex2.json',
+  //     data: {},
+  //     success (res) {
+  //       wxparse.wxParse('content', 'html',res.data[0].content,that,5)
+  //       that.setData({
+  //         indexInfo: res.data[0],
+  //         shows: res.data[0].show == 1 ? true : false
+  //       })
+  //     }
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad () {
+   onLoad () {
     this.getLocation()
-    this.getIndexData()
+    // this.getIndexData()
     app.cloud().login()
     app.loadFontE()
     app.loadFontC()
   },
-  /**
+   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady () {
@@ -199,7 +199,7 @@ Page({
     }
     // console.log(' ---------- onShow ----------')
   },
-  /**
+  /*
    * 生命周期函数--监听页面隐藏
    */
   onHide () {
@@ -215,7 +215,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh () {
-    this.getIndexData()
+    // this.getIndexData()
     this.getLocation()
   },
   onShareAppMessage: function () {

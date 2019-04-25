@@ -1,0 +1,36 @@
+<image class="bgimg" mode="aspectFill" src="https://7465-teach-1258324355.tcb.qcloud.la/image/EVA.jpg"></image>
+<scroll-view scroll-y
+            scroll-into-view="id{{ id }}"
+            scroll-with-animation="1"
+            style="height: 100%;">
+    <view class="chat-area">
+        <block wx:for="{{ chatList }}" wx:key>
+            <view id="id{{ index }}" wx:if="{{ item.type == 1 }}" class="robot block">
+                <image mode="aspectFill" catchtap="showImg" src="{{ robot }}"></image>
+                <view class="block-content">
+                    <view class="name-text">第十三使徒</view>
+                    <view class="content">
+                        {{ item.text }}
+                    </view>
+                    <ad wx:if="{{ item.text == '不知道说什么，那不如看看我的小广告' }}" unit-id="adunit-e61a81bff1cc12a6"></ad>
+                </view>
+            </view>
+            <view wx:if="{{ item.type == 2 }}" class="user block">
+                <view class="block-content">
+                    <view class="name-text">{{ userName }}</view>
+                    <view class="content">
+                        {{ item.text }}
+                    </view>
+                </view>
+                <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+                    <image src="{{ userImg }}"></image>
+                </button>
+            </view>
+        </block>
+    </view>
+</scroll-view>
+<my-music></my-music>
+<view class="input-area">
+    <input confirm-hold="1" value="{{ inputValue }}" placeholder="我们开始闲聊吧~~" bindconfirm="chat" confirm-type="send"/>
+</view>
+<my-load wx:if="{{ loading }}"></my-load>

@@ -1,10 +1,12 @@
 <view catchtap="_showMusic" class="music-mask {{ show ? 'show' : 'no-show' }}">
-    <view class="music-bg-o">
-        <image class="music-bg" src="https://7465-teach-1258324355.tcb.qcloud.la/image/music_bg.png"></image>
-        <image class="music-img {{ musicPlay ? 'play' : '' }}" src="{{ musicPlay.image || 'https://7465-teach-1258324355.tcb.qcloud.la/image/musci_cover.png' }}"></image>
-        <image class="music-img-circle" src="https://7465-teach-1258324355.tcb.qcloud.la/image/music_circle.png"></image>
-        <image class="music-btn {{ musicPlay ? 'play' : '' }}" src="https://7465-teach-1258324355.tcb.qcloud.la/image/music_btn.png"></image>
-    </view>
+    <form report-submit="1" bindsubmit="_getTemplate">
+        <button form-type="submit" class="music-bg-o">
+            <image class="music-bg" src="https://7465-teach-1258324355.tcb.qcloud.la/image/music_bg.png"></image>
+            <image class="music-img {{ musicPlay ? 'play' : '' }}" src="{{ musicPlay.image || 'https://7465-teach-1258324355.tcb.qcloud.la/image/musci_cover.png' }}"></image>
+            <image class="music-img-circle" src="https://7465-teach-1258324355.tcb.qcloud.la/image/music_circle.png"></image>
+            <image class="music-btn {{ musicPlay ? 'play' : '' }}" src="https://7465-teach-1258324355.tcb.qcloud.la/image/music_btn.png"></image>
+        </button>
+    </form>
     <scroll-view scroll-y="{{true}}" class="music-list {{ show ? 'show' : 'no-show' }}">
         <!--<view style="height: 100%;">-->
             <view class="scroll-item" catchtap="_playMusic" wx:for="{{ musicList }}" wx:key="*5" data-index="{{ index }}">

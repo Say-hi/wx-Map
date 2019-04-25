@@ -9,13 +9,21 @@
   right: 0;
 }
 .music-mask.no-show {
-  right: -170rpx;
+  right: -140rpx;
 }
 .music-mask .music-bg-o {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: transparent;
   width: 200rpx;
   height: 200rpx;
   position: relative;
   padding-left: 20rpx;
+}
+.music-mask .music-bg-o:before,
+.music-mask .music-bg-o:after {
+  border: none;
 }
 .music-mask .music-bg-o .music-img {
   position: absolute;

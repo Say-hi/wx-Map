@@ -29,10 +29,10 @@
   align-items: center;
   height: inherit;
 }
-.tab-wrap .scroll .tab-bar-item image {
+.tab-wrap .scroll .tab-bar-item .images {
   width: 54rpx;
   height: 54rpx;
 }
-.tab-wrap .scroll .tab-bar-item view {
+.tab-wrap .scroll .tab-bar-item .views {
   font-size: 20rpx;
 }

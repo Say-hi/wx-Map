@@ -32,7 +32,9 @@ App({
       fail: obj.fail || function (err) {
         console.log(err);
       },
-      complete: obj.complete || function () {}
+      complete: obj.complete || function (res) {
+        console.log(res);
+      }
     });
   },
   gs: function gs(key) {

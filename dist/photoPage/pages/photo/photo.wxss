@@ -4,22 +4,45 @@ page {
 }
 .wrap {
   position: fixed;
-  top: 0;
+  top: -110%;
   left: 0;
+  z-index: 20;
   height: 75%;
   width: 100%;
   text-align: center;
 }
 .wrap image {
+  margin-top: 50rpx;
   width: 100%;
+}
+.wrapin {
+  animation: ii 1s linear forwards;
+}
+@keyframes ii {
+  to {
+    top: 0;
+  }
+}
+.opin {
+  animation: opinn 1s linear forwards;
+}
+@keyframes opinn {
+  from {
+    bottom: -500px;
+  }
+  to {
+    bottom: 20rpx;
+  }
 }
 .operation {
   position: fixed;
   width: 100%;
-  height: 25%;
-  bottom: 0;
+  min-height: 200rpx;
+  max-height: 250rpx;
+  bottom: -500px;
   left: 0;
   box-sizing: border-box;
+  z-index: 30;
 }
 .operation .oscroll {
   width: 100%;
@@ -30,10 +53,11 @@ page {
   height: 100%;
   text-align: center;
   margin: 0 10rpx;
-  min-width: 120rpx;
+  flex: 0 0 20%;
 }
 .operation image {
-  width: 100rpx;
+  width: 100%;
+  margin-bottom: 10rpx;
 }
 .operation .name {
   font-size: 24rpx;
@@ -51,4 +75,78 @@ page {
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 60rpx;
+}
+.choose-model {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20rpx;
+  flex-wrap: wrap;
+}
+.cm-item {
+  flex: 0 0 15%;
+  margin: 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  color: #fff;
+  padding: 30rpx 40rpx;
+  border-radius: 18rpx;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.animate-in {
+  animation: getin 0.5s linear forwards;
+}
+@keyframes getin {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.big {
+  animation: getbig 1s linear forwards;
+}
+@keyframes getbig {
+  from {
+    position: relative;
+    z-index: 10;
+  }
+  to {
+    position: relative;
+    opacity: 1;
+    z-index: 10;
+    transform: translateY(500%) scale(40);
+  }
+}
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.53);
+  font-size: 28rpx;
+  color: #fff;
+  padding: 8rpx 10rpx;
+}
+.duibi {
+  position: absolute;
+  top: 80rpx;
+  left: 10rpx;
+  display: inline-block;
+  border-radius: 28rpx;
+  font-size: 26rpx;
+  padding: 6rpx 20rpx;
+  background-color: #ffffff;
+  border: 2rpx solid #eee;
+}
+.saveimg {
+  top: 130rpx;
 }

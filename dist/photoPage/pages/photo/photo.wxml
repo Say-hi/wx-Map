@@ -1,16 +1,26 @@
-<view class='wrap'>
-    <image catchtap='chooseImage' id='showImg' mode="widthFix" src="{{ BackshowImg || showImg }}"></image>
-    <canvas catchtap='showList' id="jwq"  canvas-id='myCanvas' style='position:fixed;top:-1500px;left:0;z-index:999; background:#f00;margin: 0;padding: 0;display: block;width:{{wdith}}px;height:{{height}}px;'></canvas>
-    <!--<view wx:if='{{ BackshowImg }}' catchtap='savePhoto' class="save-btn">保存至相册</view>-->
-    <!--<view catchtap='savePhoto' class="save-btn">保存至相册</view>-->
+<view class='wrap {{ chooseIndex >= 0 ? "wrapin" : "" }}'>
+    <image catchtap='chooseImage' id='showImg' mode="widthFix" src="{{ original ? showImg : BackshowImg || showImg }}"></image>
+    <view class="back" catchtap="chooseModel" data-index="-1">当前模式: {{ lists[chooseIndex].title }} ---- 重新选择</view>
+    <view wx:if="{{ BackshowImg }}" catchtap="showOriginal" class="duibi">对比</view>
+    <view catchtap="shareImg" wx:if="{{ BackshowImg }}" class="duibi saveimg">保存</view>
 </view>
-<scroll-view scroll-x class="operation">
+
+<scroll-view scroll-x class="operation {{ chooseIndex >= 0 ? 'opin' : '' }}">
     <view class='oscroll'>
-        <view catchtap='getbase64' data-model='{{item.model}}' class='op-b' wx:for="{{ bottomList }}" wx:for-key="*53">
-            <image mode="widthFix" src="{{item.url}}"></image>
-            <view class='name'>{{ item.name }}</view>
+        <view catchtap='getbase64' data-type='{{ item.type }}' class='op-b' wx:for="{{ lists[chooseIndex].choose }}" wx:key>
+            <image lazy-load="1" mode="widthFix" src="{{item.ico}}"></image>
+            <view class='name'>{{ item.t }}</view>
         </view>
     </view>
 </scroll-view>
+
+
+<canvas catchtap='showList' id="jwq"  canvas-id='myCanvas' style='position:fixed;top:-1500px;left:0;z-index:999; background:#f00;margin: 0;padding: 0;display: block;width:{{wdith}}px;height:{{height}}px;'></canvas>
+
+<view class="choose-model">
+    <view wx:for="{{ lists }}" wx:key catchtap="chooseModel" data-index="{{ index }}" style="{{ item.style }}; animation-delay: {{ noneed ? 0 : index * 0.2 }}s;" class="cm-item animate-in {{ chooseIndex == index ? 'big' : '' }}">{{ chooseIndex == index ? '' : item.title }}</view>
+    <my-music></my-music>
+    <ad unit-id="adunit-e61a81bff1cc12a6"></ad>
+</view>
 
 <my-load wx:if="{{ loading }}"></my-load>

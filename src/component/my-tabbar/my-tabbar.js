@@ -2,6 +2,8 @@
 // const app = getApp()
 /*eslint-disable*/
 const app = getApp()
+let interstitialAd = null
+let adList = ['adunit-4f07cc10a5456874', 'adunit-6e87d676cfe14f11', 'adunit-052131219397beeb', 'adunit-4f07cc10a5456874', 'adunit-6e87d676cfe14f11', 'adunit-052131219397beeb', 'adunit-4f07cc10a5456874', 'adunit-6e87d676cfe14f11', 'adunit-052131219397beeb', 'adunit-052131219397beeb']
 Component({
   options: {
     addGlobalClass: true
@@ -41,11 +43,27 @@ Component({
       })
     }
   },
+  pageLifetimes: {
+    show () {
+      // 在页面中定义插屏广告
+
+// 在页面onLoad回调事件中创建插屏广告实例
+      if (wx.createInterstitialAd) {
+        interstitialAd = wx.createInterstitialAd({
+          adUnitId: adList[Math.floor(Math.random() * 10)]
+        })
+      }
+
+// 在适合的场景显示插屏广告
+      if (interstitialAd) {
+        interstitialAd.show().catch((err) => {
+          console.error(err)
+        })
+      }
+    }
+  },
   methods: {
     goUrl(e) {
-      if (this.data.list.length > 4) {
-        app.su('scrollid', `index${e.currentTarget.dataset.index}`)
-      }
       if (e.currentTarget.dataset.index == this.data.selected) return
       if (e.currentTarget.dataset.type === 'navigate') {
         wx.navigateTo({

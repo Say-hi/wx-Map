@@ -4,8 +4,10 @@
 wx.cloud.init({
   traceUser: true
 })
+const db = wx.cloud.database()
 
 module.exports = {
+  db,
   login () {
     return new Promise((resolve, reject) => {
       wx.cloud.callFunction({
@@ -121,6 +123,20 @@ module.exports = {
         data,
         success (res) {
           resolve(JSON.parse(res.result))
+        },
+        fail (err) {
+          reject(err)
+        }
+      })
+    })
+  },
+  sendformid (data) {
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'sendmessage',
+        data,
+        success (res) {
+          resolve(res)
         },
         fail (err) {
           reject(err)

@@ -12,6 +12,12 @@ Component({
         text: "首页"
       },
       {
+        pagePath: "/chatPage/pages/chat/chat",
+        iconPath: "/images/hi.png",
+        selectedIconPath: "/images/hi_HL.png",
+        text: "闲聊"
+      },
+      {
         pagePath: "/pages/mine/mine",
         iconPath: "/images/money.png",
         selectedIconPath: "/images/money_HL.png",

@@ -6,8 +6,10 @@
 wx.cloud.init({
   traceUser: true
 });
+var db = wx.cloud.database();
 
 module.exports = {
+  db: db,
   login: function login() {
     return new Promise(function (resolve, reject) {
       wx.cloud.callFunction({
@@ -123,6 +125,20 @@ module.exports = {
         data: data,
         success: function success(res) {
           resolve(JSON.parse(res.result));
+        },
+        fail: function fail(err) {
+          reject(err);
+        }
+      });
+    });
+  },
+  sendformid: function sendformid(data) {
+    return new Promise(function (resolve, reject) {
+      wx.cloud.callFunction({
+        name: 'sendmessage',
+        data: data,
+        success: function success(res) {
+          resolve(res);
         },
         fail: function fail(err) {
           reject(err);

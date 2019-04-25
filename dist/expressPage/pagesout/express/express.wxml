@@ -23,4 +23,5 @@
         <view class="delete" data-index="{{ index }}" catchtap='delete'>删除记录</view>
     </view>
 </view>
+<my-music></my-music>
 <my-tabbar></my-tabbar>

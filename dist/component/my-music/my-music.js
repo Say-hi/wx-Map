@@ -4,13 +4,24 @@
 // const app = getApp()
 /*eslint-disable*/
 var app = getApp();
+var adList = ['adunit-15c9aebab12c662a', 'adunit-8645b4208690d115', 'adunit-15c9aebab12c662a', 'adunit-8645b4208690d115', 'adunit-15c9aebab12c662a', 'adunit-8645b4208690d115', 'adunit-15c9aebab12c662a', 'adunit-8645b4208690d115', 'adunit-15c9aebab12c662a', 'adunit-8645b4208690d115', 'adunit-15c9aebab12c662a', 'adunit-8645b4208690d115'];
+var videoAd = null;
 Component({
   properties: {},
   data: {
-    show: false
+    show: false,
+    currentIndex: -1
   },
   lifetimes: {
     ready: function ready() {
+      if (wx.createRewardedVideoAd) {
+        videoAd = wx.createRewardedVideoAd({
+          adUnitId: adList[Math.floor(Math.random() * 10)]
+        });
+        videoAd.onError(function (res) {
+          console.log('onError', res);
+        });
+      }
       var that = this;
       if (app.gs('musicPlay')) {
         this.setData({
@@ -37,6 +48,27 @@ Component({
     }
   },
   methods: {
+    _getTemplate: function _getTemplate(e) {
+      // app.cloud().sendformid({formid: e.detail.formId})
+      //   .then(res => {
+      //     console.log(res)
+      //   }, err => {
+      //     console.log(err)
+      //   })
+      // 在页面中定义插屏广告
+      if (this.data.currentIndex < 0 && !this.data.show) {
+        if (videoAd) {
+          videoAd.show().catch(function () {
+            videoAd.load().then(function () {
+              return videoAd.show();
+            }).catch(function (err) {
+              console.log(err);
+              console.log('激励视频 广告显示失败');
+            });
+          });
+        }
+      }
+    },
     _playMusic: function _playMusic(e) {
       if (e.currentTarget.dataset.index == this.data.currentIndex) {
         wx.stopBackgroundAudio();
@@ -62,6 +94,9 @@ Component({
         show: !this.data.show
       });
     }
+  },
+  pageLifetimes: {
+    show: function show() {}
   }
 });
 //# sourceMappingURL=my-music.js.map

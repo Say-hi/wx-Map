@@ -47,7 +47,7 @@
         </view>
     </swiper-item>
 </swiper>
-
+<ad unit-id="adunit-e61a81bff1cc12a6"></ad>
 <view class="p20 bb bt1 mt20" wx:if="{{ baiduWeather.index }}">
     <view wx:for="{{ baiduWeather.index }}"
           class="iconfont {{ index != 4 ? 'bd1' : '' }} p10 {{ zsIcon[index] }} baidu-weather"
@@ -76,4 +76,5 @@
     </view>
     <view class="tac f28 c999 p20" wx:if="{{ !locInfo.pois.length }}">周边暂无相关信息哦</view>
 </my-mask>
+
 <my-load wx:if="{{ loading }}"></my-load>
