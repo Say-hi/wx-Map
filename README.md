@@ -15,7 +15,7 @@
 
 6: 也可直接使用已上传的dist进行预览
 
-微信小程序搜索： <label style="color:red;font-size: 3em;">城市天气查询</label>
+微信小程序搜索：『 <font color="#8600FF" font-size=20>城市天气查询</font>』
 
 欢迎扫码体验 😀😀
 
